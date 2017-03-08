@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <workbook>
+        <worksheet idx="0">
+       	 <section startRow="0" endRow="0">  
+				
+			</section>  
+            <loop startRow="1" endRow="1" items="cards" var="card" varType="com.dz.module.contract.BankCard">
+                <section startRow="1" endRow="1">
+                    <mapping row="1" col="0">card.cardClass</mapping>
+					<mapping row="1" col="1">card.idNumber</mapping>
+					<mapping row="1" col="2">card.cardNumber</mapping>
+                </section>
+                <loopbreakcondition>
+                    <rowcheck offset="0">
+                        <cellcheck offset="0"></cellcheck>
+                    </rowcheck>
+                </loopbreakcondition>
+            </loop>
+        </worksheet>
+    </workbook>

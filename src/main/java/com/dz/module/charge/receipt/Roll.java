@@ -1,0 +1,54 @@
+package com.dz.module.charge.receipt;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ * @author doggy
+ *         Created on 15-12-28.
+ */
+@Entity
+@Table(name = "`roll`",catalog = "dzomsdb")
+public class Roll {
+    @Id
+    @GeneratedValue
+    private int id;
+    private int startNum;
+    private int endNum;
+    //0表示买入，1表示卖出
+    private int solded;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStartNum() {
+        return startNum;
+    }
+
+    public void setStartNum(int startNum) {
+        this.startNum = startNum;
+    }
+
+    public int getEndNum() {
+        return endNum;
+    }
+
+    public void setEndNum(int endNum) {
+        this.endNum = endNum;
+    }
+
+    public int getSolded() {
+        return solded;
+    }
+
+    public void setSolded(int solded) {
+        this.solded = solded;
+    }
+}

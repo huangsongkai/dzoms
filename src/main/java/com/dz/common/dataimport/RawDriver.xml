@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <workbook>
+        <worksheet idx="0">
+			<section startRow="0" endRow="0">  
+				
+			</section>  
+            <loop startRow="1" endRow="1" items="drivers" var="driver" varType="com.dz.common.dataimport.RawDriver">
+                <section startRow="1" endRow="1">
+                    <mapping row="1" col="0">driver.licenseNum</mapping>
+                    <mapping row="1" col="1">driver.ownerName</mapping>
+                    <mapping row="1" col="2">driver.driverName</mapping>
+                    <mapping row="1" col="3">driver.driverClass</mapping>
+					<mapping row="1" col="4">driver.restTime</mapping>
+					<mapping row="1" col="5">driver.idNum</mapping>
+                    <mapping row="1" col="6">driver.phoneNum1</mapping>
+                    <mapping row="1" col="7">driver.businessApplyTime</mapping>
+                    <mapping row="1" col="8">driver.businessCancelTime</mapping>
+					<mapping row="1" col="9">driver.dept</mapping>
+					<mapping row="1" col="10">driver.isInCar</mapping>
+                    <mapping row="1" col="11">driver.shiftTime</mapping>
+                    <mapping row="1" col="12">driver.operatingStation</mapping>
+                    <mapping row="1" col="13">driver.employeeNum</mapping>
+                </section>
+                <loopbreakcondition>
+                    <rowcheck offset="0">
+                        <cellcheck offset="0"></cellcheck>
+                    </rowcheck>
+                </loopbreakcondition>
+            </loop>
+        </worksheet>
+    </workbook>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <workbook>
+        <worksheet idx="0">
+			<section startRow="0" endRow="0">  
+				
+			</section>  
+            <loop startRow="1" endRow="1" items="vehicles" var="vehicle" varType="com.dz.common.dataimport.RawVehicle">
+                <section startRow="1" endRow="1">
+                    <mapping row="1" col="2">vehicle.licenseNum</mapping>
+                    <mapping row="1" col="19">vehicle.driverName</mapping>
+                    <mapping row="1" col="20">vehicle.driverId</mapping>
+                    <mapping row="1" col="4">vehicle.carframeNum</mapping>
+					<mapping row="1" col="3">vehicle.engineNum</mapping>
+					<mapping row="1" col="5">vehicle.pd</mapping>
+					<mapping row="1" col="11">vehicle.moneyCountor</mapping>
+                    <mapping row="1" col="17">vehicle.carMode</mapping>
+                    <mapping row="1" col="7">vehicle.certifyNum</mapping>
+                    <mapping row="1" col="15">vehicle.dept</mapping>
+					<mapping row="1" col="5">vehicle.inDate</mapping>
+					<mapping row="1" col="8">vehicle.licensePurseNum</mapping>
+                    <mapping row="1" col="21">vehicle.isNewLicense</mapping>
+                    <mapping row="1" col="10">vehicle.operateCard</mapping>
+                    <mapping row="1" col="9">vehicle.operateCardTime</mapping>
+					<mapping row="1" col="12">vehicle.businessLicenseNum</mapping>
+                    <mapping row="1" col="13">vehicle.businessLicenseBeginDate</mapping>
+                    <mapping row="1" col="14">vehicle.businessLicenseEndDate</mapping>
+                </section>
+                <loopbreakcondition>
+                    <rowcheck offset="0">
+                        <cellcheck offset="0"></cellcheck>
+                    </rowcheck>
+                </loopbreakcondition>
+            </loop>
+        </worksheet>
+    </workbook>

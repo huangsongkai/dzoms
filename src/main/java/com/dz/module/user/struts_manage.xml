@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="manage" extends="struts-default" namespace="/manage">
+        <result-types>
+            <result-type name="message" class="com.dz.common.result.JSONResult"></result-type>
+        </result-types>
+        <action name="*" class="managerAction" method="{1}">
+            <result name="success">${jspPage}</result>
+            <result name="message" type="message"></result>
+            <result name="dispatch" type="chain">${dispatchUrl}</result>
+        </action>
+    </package>
+</struts>

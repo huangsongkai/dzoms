@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="vehicle" namespace="/vehicle" extends="struts-default">
+	 <result-types>
+                <result-type name="stringresult" class="com.dz.common.result.StringResult"/>
+                <result-type name="jsonresult" class="com.dz.common.result.JSONResult"/>
+            </result-types>
+         <action name="vehicleAbandon*" class="vehicleApprovalAction" method="vehicleAbandon{1}">
+                        <result>${url}</result>
+                </action>
+
+                <action name="vehicleApproval*" class="vehicleApprovalAction" method="vehicleApproval{1}">
+                        <result>${url}</result>
+                </action>
+                
+                <action name="vehicleModePre*" class="vehicleModeAction" method="vehicleModeShow">
+                        <result name="success">/vehicle/VehicleMode/vehiclemode_{1}.jsp</result>
+                        <result name="error">/error.jsp</result>
+                </action>
+               
+           		<action name="vehicleMode*" class="vehicleModeAction" method="vehicleMode{1}">
+           				<result name="toclose">/common/success_and_close.html</result>
+                        <result name="success">/vehicle/VehicleMode/vehiclemode_search.jsp</result>
+                        <result name="error">/error.jsp</result>
+            	</action>
+                
+                <action name="vehicleModeShow" class="vehicleModeAction" method="vehicleModeShow">
+                        <result name="success">/vehicle/VehicleMode/vehiclemode_show.jsp</result>
+                        <result name="success_url">${url}</result>
+                        <result name="error">/error.jsp</result>
+                </action>
+                 <action name="vehicleModeSelect" class="vehicleModeAction" method="vehicleModeSelect">
+                        <result name="success">/vehicle/VehicleMode/vehiclemode_search_result.jsp</result>
+                        <result name="error">/error.jsp</result>
+                </action>
+
+                 <action name="vehiclePre*" class="vehicleAction" method="vehicleSelectById">
+            		<result name="selectById">/vehicle/vehicle/vehicle_{1}.jsp</result>
+           		 </action>
+           		 
+           		 <action name="vehicleShow" class="vehicleAction" method="vehicleSelectById">
+            		<result name="selectById">${url}</result>
+           		 </action>
+
+                <action name="vehicle*" class="vehicleAction" method="vehicle{1}">
+                        <result name="success">${url}</result>
+                        <result name="error">${url}</result>
+                        <result name="select">/vehicle/vehicle/vehicle_search_result.jsp</result>
+            			<result name="selectToUrl">${url}</result>
+                        <result name="selectByLicenseNum" type="jsonresult"/>
+                        <result name="selectById" type="jsonresult"/>
+            	</action>
+           		
+           		<action name="invoice_add" class="vehicleAction" method="addInvoice">
+           			<result>${url}</result>
+           		</action>
+           		<action name="tax_add" class="vehicleAction" method="addTax">
+           			<result>${url}</result>
+           		</action>
+           		<action name="insurance_add" class="insuranceAction" method="addInsurance">
+           			<result name="success">/vehicle/insurance/insurance_search.jsp</result>
+           			<result name="error">/error.jsp</result>
+           		</action>
+           		<action name="insuranceSele" class="insuranceAction" method="selectByCondition">
+           			<result name="success">/vehicle/insurance/insurance_search_result.jsp</result>
+           			<result name="error">/error.jsp</result>
+           		</action>
+           		<action name="insurancePre*" class="insuranceAction" method="insuranceSelectById">
+           			<result>/vehicle/insurance/insurance_{1}.jsp</result>
+           		</action>
+           		
+           		<action name="licence_add" class="vehicleAction" method="addLicence">
+           			<result>${url}</result>
+           		</action>
+           		<action name="service_add" class="vehicleAction" method="addService">
+           			<result>${url}</result>
+           		</action>
+           		<action name="service_right_add" class="vehicleAction" method="addServiceRight">
+           			<result>${url}</result>
+           		</action>
+           		<action name="trade_add" class="vehicleAction" method="addTrade">
+           			<result>${url}</result>
+           		</action>
+           		
+           		<action name="serviceImport" class="serviceImportAction" method="uploadDailyData">
+           			<result>${url}</result>
+           		</action>
+           		<action name="serviceClear" class="serviceImportAction" method="serviceClear">
+           			<result>${url}</result>
+           		</action>
+           		<action name="beforeserviceSave" class="serviceImportAction" method="beforeserviceSave">
+           			<result>/vehicle/service/addOrUpdateDetail.jsp</result>
+           		</action>
+           		<action name="beforeserviceSaveFromError" class="serviceImportAction" method="beforeserviceSaveFromError">
+           			<result>/vehicle/service/addFromError.jsp</result>
+           		</action>
+           		
+           		<action name="singleDailyExport" class="serviceImportAction" method="singleDailyExport">
+          			<param name="templatePath">/vehicle/service/daily.xls</param>
+          			<param name="outputName">\u65E5\u62A5\u8868</param>
+               		<result name="success" type="chain">
+               			<param name="actionName">outputExcel</param>
+               			<param name="namespace">/common</param>
+               		</result>
+           		</action>
+           		
+           		<action name="exportToExcel" class="electricAction" method="exportToExcel">
+           			<param name="templatePath">/vehicle/electric/export.xls</param>
+          			<param name="outputName">\u7535\u5B50\u8FDD\u7AE0</param>
+               		<result name="success" type="chain">
+               			<param name="actionName">outputExcel</param>
+               			<param name="namespace">/common</param>
+               		</result>
+           		</action>
+           		
+           		<action name="electricQuery" class="electricAction" method="fecth">
+           		</action>
+           		<action name="electricQueryAll" class="electricAction" method="fecthAll">
+           		</action>
+        </package>
+                
+        <package name="vehicle_check" namespace="/vehicle/check" extends="struts-default">
+         	<result-types>
+                <result-type name="stringresult" class="com.dz.common.result.StringResult"/>
+                <result-type name="jsonresult" class="com.dz.common.result.JSONResult"/>
+            </result-types>
+            <action name="selfCheckPlan*" method="selfCheckPlan{1}" class="com.dz.module.vehicle.check.SelfCheckPlanAction">
+                <result name="ajax_message" type="stringresult"/>
+                <result name="jsonObject" type="jsonresult"/>
+            </action>
+	</package>
+
+</struts>

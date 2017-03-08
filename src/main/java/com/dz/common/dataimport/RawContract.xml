@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <workbook>
+        <worksheet idx="0">
+			<section startRow="0" endRow="0">  
+				
+			</section>  
+            <loop startRow="1" endRow="1" items="contracts" var="contract" varType="com.dz.common.dataimport.RawContract">
+                <section startRow="1" endRow="1">
+                    <mapping row="1" col="1">contract.carframeNum</mapping>
+					<mapping row="1" col="3">contract.penalty</mapping>
+					<mapping row="1" col="4">contract.contractId</mapping>
+					<mapping row="1" col="5">contract.carNum</mapping>
+					<mapping row="1" col="6">contract.remark</mapping>
+					<mapping row="1" col="7">contract.contractBeginDate</mapping>
+					<mapping row="1" col="8">contract.contractEndDate</mapping>
+					<mapping row="1" col="9">contract.businessForm</mapping>
+					<mapping row="1" col="10">contract.idNum</mapping>
+					<mapping row="1" col="11">contract.feeAlter</mapping>
+					<mapping row="1" col="12">contract.branchFirm</mapping>
+					<mapping row="1" col="13">contract.ascription</mapping>
+					<mapping row="1" col="14">contract.rentFirst</mapping>
+					<mapping row="1" col="15">contract.deposit</mapping>
+					<mapping row="1" col="16">contract.rent</mapping>
+                </section>
+                <loopbreakcondition>
+                    <rowcheck offset="0">
+                        <cellcheck offset="0"></cellcheck>
+                    </rowcheck>
+                </loopbreakcondition>
+            </loop>
+        </worksheet>
+    </workbook>
