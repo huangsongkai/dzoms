@@ -1,26 +1,21 @@
 package com.dz.common.other;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class FileUploadUtil extends HttpServlet {
@@ -36,7 +31,6 @@ public class FileUploadUtil extends HttpServlet {
 		Map<String,String> map = (Map<String,String>)request.getServletContext().getAttribute("TempFileMap");
 		
 		while(map.containsKey(seq)) seq = getRandomString(30);
-		
 		int index = 0;
 		try{
 			DiskFileItemFactory factory = new DiskFileItemFactory(4096, new File(System.getProperty("com.dz.root")+"tmp"));

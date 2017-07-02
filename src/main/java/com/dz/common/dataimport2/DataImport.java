@@ -9,7 +9,6 @@ import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.Resource;
 
 import com.dz.common.dataimport2.entity.*;
 import com.dz.common.factory.HibernateSessionFactory;
@@ -106,7 +105,7 @@ public class DataImport {
 	private static ApplicationContext ctx;
 	
 	public static void init(){
-		Configuration configurate = new Configuration().configure(DataImport.class.getResource ("hibernate.cfg.xml"));
+		Configuration configurate = new Configuration().configure(DataImport.class.getResource ("apply_manage/hibernate.cfg.xml"));
 		sessionFactory = configurate.buildSessionFactory();
 		
 		ctx = new ClassPathXmlApplicationContext("com/dz/common/dataimport2/applicationContext.xml"); 

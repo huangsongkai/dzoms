@@ -41,7 +41,7 @@
 	<mapping class="com.dz.common.dataimport2.entity.购置税" />
 	<mapping class="com.dz.common.dataimport2.entity.合同表" />
 	<mapping class="com.dz.common.dataimport2.entity.驾驶员登记表" />
-	<mapping class="com.dz.common.dataimport2.entity.驾驶员登记表大众" />
+	<mapping class="com.dz.common.dataimport2.entity.驾驶员登记表大众" /
 	<mapping class="com.dz.common.dataimport2.entity.驾驶员银行卡号" />
 	<mapping class="com.dz.common.dataimport2.entity.RawVehicle" />
 	<mapping class="com.dz.common.dataimport2.entity.银行卡" />

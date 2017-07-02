@@ -4,15 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <display-name>dzjt</display-name>
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    <display-name>dzoms</display-name>
     <welcome-file-list>
         <welcome-file>login2.jsp</welcome-file>
         <welcome-file>default.jsp</welcome-file>
@@ -27,10 +19,42 @@
         <url-pattern>/fileAdapt/upload</url-pattern>
     </servlet-mapping>
     <filter>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+
+        <filter-class>com.dz.kaiying.filter.OpenSessionInViewFilter</filter-class>
+        <init-param>
+            <param-name>flushMode</param-name>
+            <param-value>AUTO</param-value>
+        </init-param>
+        <!--<init-param>-->
+            <!--<param-name>singleSession</param-name>-->
+            <!--<param-value>false</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>sessionFactoryBeanName</param-name>-->
+            <!--<param-value>sessionFactory2</param-value>-->
+        <!--</init-param>-->
+    </filter>
+    <filter-mapping>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>MVCFilter</filter-name>
+        <filter-class>com.dz.kaiying.util.MVCFilter</filter-class>
+    </filter>
+    <!-- Struts2过滤器拦截所有的.action请求 -->
+    <filter-mapping>
+        <filter-name>MVCFilter</filter-name>
+        <url-pattern>/ky/*</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
         <filter-name>DataTrackFilter</filter-name>
         <filter-class>com.dz.common.test.DataTrackFilter</filter-class>
     </filter>
-
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -45,10 +69,33 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <jsp-config>
         <taglib>
             <taglib-uri>/struts-tags</taglib-uri>
             <taglib-location>/WEB-INF/struts-tags.tld</taglib-location>
         </taglib>
     </jsp-config>
+
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <!--springMVC-->
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/ky/*</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 </web-app>

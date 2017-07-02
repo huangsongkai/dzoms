@@ -1,8 +1,8 @@
 package com.dz.module.charge;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 public class ChargePlanSum {
@@ -14,6 +14,10 @@ public class ChargePlanSum {
 	private Long planTimes;
 	private BigDecimal receiveSum;
 	private Long receiveTimes;
+
+	public ChargePlanSum() {
+	}
+
 	public int getContractId() {
 		return contractId;
 	}
@@ -68,7 +72,16 @@ public class ChargePlanSum {
 		this.receiveSum = receiveSum!=null?BigDecimal.valueOf(receiveSum):BigDecimal.valueOf(0);
 		this.receiveTimes = receiveTimes;
 	}
-	
-	
-	
+
+
+	private String id;
+
+	@Id
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

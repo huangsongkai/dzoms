@@ -1,7 +1,9 @@
 package com.dz.module.search;
 
-import java.util.List;
-
+import com.dz.common.factory.HibernateSessionFactory;
+import com.dz.common.global.Page;
+import com.dz.module.driver.Driver;
+import com.dz.module.vehicle.Vehicle;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.HibernateException;
@@ -9,10 +11,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
-import com.dz.common.factory.HibernateSessionFactory;
-import com.dz.common.global.Page;
-import com.dz.module.driver.Driver;
-import com.dz.module.vehicle.Vehicle;
+import java.util.List;
 @Repository(value = "dvDao")
 public class DvDaoImpl implements DvDao {
 
@@ -22,7 +21,7 @@ public class DvDaoImpl implements DvDao {
 		Session session = null;
 		try {
 			session = HibernateSessionFactory.getSession();
-			Query query = session.createQuery("from Dv ");
+			Query query = session.createQuery("from Test");
 			List<Dv> list = query.list();
 			return list;
 			

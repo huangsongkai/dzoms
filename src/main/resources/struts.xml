@@ -15,6 +15,7 @@
         <include file="com/dz/module/struts-select.xml" />
         <include file="com/dz/module/user/struts_manage.xml" />
         <include file="com/dz/common/download/down-load.xml" />
+        <include file="com/dz/kaiying/struts-kaiying.xml" />
 
         <package name="default-package" extends="struts-default">
                 <result-types>
