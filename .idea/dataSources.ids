@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="hibernate.cfg.xml/Hibernate" uuid="5e8a5b5c-ea5b-43ab-91a7-cb9dd6cadaf6">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="com:dz:common:dataimport2:hibernate.cfg.xml/Hibernate" uuid="80482136-664e-4e35-946e-35fa62eb8c07">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

@@ -158,6 +158,12 @@ function setTheIframeH(size){
 									个人管理
 			</a>
 		</li>
+		<li>
+			<a href="demoleft.jsp?menu=activity" target="body">
+				<img src="/DZOMS/res/mainPage/img/icons/packs/crystal/48x48/apps/mydocuments.png">
+									新功能展示
+			</a>
+		</li>
 		<%-- <% } %> --%>
 		<li>
 			<a href="/DZOMS/userLogout">

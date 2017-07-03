@@ -21,6 +21,7 @@
 	idMap.put("driver","驾驶员");
 	idMap.put("finance","财务");
 	idMap.put("apply_manage","审批管理");
+	idMap.put("activity","新功能展示");
 	idMap.put("manage","系统管理");
 	idMap.put("statistics","统计分析");
 %>
