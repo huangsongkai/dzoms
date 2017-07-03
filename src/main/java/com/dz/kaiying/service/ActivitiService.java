@@ -91,7 +91,8 @@ public class ActivitiService {
             if (parameterMap.size() != 0){
                 taskService.setVariablesLocal(id, parameterMap);
             }
-            taskService.setVariable(id, "isApproved", "true");
+
+            //taskService.setVariable(id, "isApproved", "true");
             taskService.setVariableLocal(id, "taskid", id);
             //是指多个candidate的时候,该用户接受了请求,其他用户就不可见了
 //        taskService.claim(id, "swl");
