@@ -1,10 +1,12 @@
 package com.dz.kaiying.DTO;
 // default package
 
+import java.util.List;
+
 /**
  * Authority entity. @author MyEclipse Persistence Tools
  */
-public class DepartmentEvaluateDTO implements java.io.Serializable {
+public class ManagerEvaluateDTO implements java.io.Serializable {
 
 	/**
 	 *
@@ -20,6 +22,7 @@ public class DepartmentEvaluateDTO implements java.io.Serializable {
 	private String scoreStandard;
 	private String[] inputs;
 	private String ziping;
+	private String bumen;
 	private String evaluateName;
 
 	public String getEvaluateName() {
@@ -113,7 +116,42 @@ public class DepartmentEvaluateDTO implements java.io.Serializable {
 	public void setZiping(String ziping) {
 		this.ziping = ziping;
 	}
-	//	{
+
+	public String getBumen() {
+		return bumen;
+	}
+
+	public void setBumen(String bumen) {
+		this.bumen = bumen;
+	}
+
+	/**
+     * Authority entity. @author MyEclipse Persistence Tools
+     */
+    public static class SaveDepartmentEvaluateDTO implements java.io.Serializable {
+
+        /**
+         *工作自评DTO
+         */
+        private List<SaveSelfEvaluateDetailDTO> selfEvaluate;
+        private Integer total;
+        public List<SaveSelfEvaluateDetailDTO> getSelfEvaluate() {
+            return selfEvaluate;
+        }
+
+        public void setSelfEvaluate(List<SaveSelfEvaluateDetailDTO> selfEvaluate) {
+            this.selfEvaluate = selfEvaluate;
+        }
+
+        public Integer getTotal() {
+            return total;
+        }
+
+        public void setTotal(Integer total) {
+            this.total = total;
+        }
+
+        //	{
     //			"total":100
     //			"selfEvaluate": [
     //		{
@@ -131,5 +169,5 @@ public class DepartmentEvaluateDTO implements java.io.Serializable {
 
 
 
-
+    }
 }

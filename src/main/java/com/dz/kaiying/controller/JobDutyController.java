@@ -1,7 +1,9 @@
 package com.dz.kaiying.controller;
 
+import com.dz.kaiying.DTO.SaveDepartmentEvaluateDTO;
+import com.dz.kaiying.DTO.SaveManagerEvaluateDTO;
 import com.dz.kaiying.DTO.SaveUserJobDutyDTO;
-import com.dz.kaiying.DTO.SelfEvaluateDTO;
+import com.dz.kaiying.DTO.SaveSelfEvaluateDTO;
 import com.dz.kaiying.model.JobDuty;
 import com.dz.kaiying.service.JobDutiesService;
 import com.dz.kaiying.util.Result;
@@ -103,16 +105,16 @@ public class JobDutyController {
          */
         @RequestMapping(value = "/selfEvaluate", method = RequestMethod.GET)
         @ResponseBody
-        public Result myJobDuties(HttpServletRequest request) throws Exception {
-            return jobDutiesService.myjobdties(request);
+        public Result myEvaluate(HttpServletRequest request) throws Exception {
+            return jobDutiesService.myEvaluate(request);
         }
 
         @RequestMapping(value = "/selfEvaluate", method = RequestMethod.POST)
         @ResponseBody
-        public Result saveMyJobDuties( @RequestBody SelfEvaluateDTO selfEvaluateDTO, HttpServletRequest request) throws Exception {
+        public Result saveMyEvaluate(@RequestBody SaveSelfEvaluateDTO selfEvaluateDTO, HttpServletRequest request) throws Exception {
             HttpSession session = request.getSession();
             String userId = (String) session.getAttribute("userId");
-            return jobDutiesService.saveMyjobdties(selfEvaluateDTO,userId);
+            return jobDutiesService.saveMyEvaluate(selfEvaluateDTO,userId);
         }
 
         /**
@@ -126,8 +128,22 @@ public class JobDutyController {
         }
         @RequestMapping(value = "/savedepartmentEvaluate", method = RequestMethod.POST)
         @ResponseBody
-        public Result savedepartmentEvaluate( HttpServletRequest request ) throws Exception {
-            return jobDutiesService.savedepartmentEvaluate(request);
+        public Result savedepartmentEvaluate( @RequestBody SaveDepartmentEvaluateDTO saveDepartmentEvaluateDTO, HttpServletRequest request ) throws Exception {
+            return jobDutiesService.savedepartmentEvaluate(saveDepartmentEvaluateDTO);
+        }
+        /**
+         * 绩效考核 经理考评
+         */
+
+        @RequestMapping(value = "/managerEvaluate", method = RequestMethod.GET)
+        @ResponseBody
+        public Result managerEvaluate( HttpServletRequest request ) throws Exception {
+            return jobDutiesService.managerEvaluate(request);
+        }
+        @RequestMapping(value = "/saveManagerEvaluate", method = RequestMethod.POST)
+        @ResponseBody
+        public Result saveManagerEvaluate(@RequestBody SaveManagerEvaluateDTO saveManagerEvaluateDTO, HttpServletRequest request) throws Exception {
+            return jobDutiesService.saveManagerEvaluate(saveManagerEvaluateDTO, request);
         }
 
 

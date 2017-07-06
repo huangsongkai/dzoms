@@ -8,7 +8,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "ky_department_duty_score", catalog = "dzomsdb")
+@Table(name = "ky_department_duty_score", catalog = "ky_dzomsdb")
 public class DepartmentDutyScore implements java.io.Serializable {
 
     @Id

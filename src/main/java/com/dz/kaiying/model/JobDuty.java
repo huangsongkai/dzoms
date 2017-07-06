@@ -9,7 +9,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "ky_job_duty", catalog = "dzomsdb")
+@Table(name = "ky_job_duty", catalog = "ky_dzomsdb")
 public class JobDuty implements java.io.Serializable {
 
     @Id

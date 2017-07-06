@@ -1,47 +1,109 @@
 package com.dz.kaiying.DTO;
 // default package
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-
 /**
  * Authority entity. @author MyEclipse Persistence Tools
  */
-public class SelfEvaluateDTO implements java.io.Serializable {
+public class selfEvaluateDTO implements java.io.Serializable {
 
 	/**
-	 *工作自评DTO
+	 *
 	 */
 	private static final long serialVersionUID = -7885510207958408068L;
-	private Map<Integer, String> inputs;
-	private Integer ziping;//分数
-	HttpServletRequest request;
+	private Integer id;
+	private Integer key;
+	private String proName;
+	private String childProName;
+	private Integer childProValue;
+	private String jobResponsibility;
+	private String complete;
+	private String scoreStandard;
+	private String jobStandard;
+	private String evaluateName;
 
-	public HttpServletRequest getRequest() {
-		return request;
+	public String getEvaluateName() {
+		return evaluateName;
 	}
 
-	public void setRequest(HttpServletRequest request) {
-		this.request = request;
+	public void setEvaluateName(String evaluateName) {
+		this.evaluateName = evaluateName;
+	}
+
+	public Integer getChildProValue() {
+		return childProValue;
+	}
+
+	public void setChildProValue(Integer childProValue) {
+		this.childProValue = childProValue;
+	}
+
+	public String getJobStandard() {
+		return jobStandard;
+	}
+
+	public void setJobStandard(String jobStandard) {
+		this.jobStandard = jobStandard;
 	}
 
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
 
-	public Map<Integer, String> getInputs() {
-		return inputs;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setInputs(Map<Integer, String> inputs) {
-		this.inputs = inputs;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public Integer getZiping() {
-		return ziping;
+	public Integer getKey() {
+		return key;
 	}
 
-	public void setZiping(Integer ziping) {
-		this.ziping = ziping;
+	public void setKey(Integer key) {
+		this.key = key;
 	}
+
+	public String getProName() {
+		return proName;
+	}
+
+	public void setProName(String proName) {
+		this.proName = proName;
+	}
+
+	public String getChildProName() {
+		return childProName;
+	}
+
+	public void setChildProName(String childProName) {
+		this.childProName = childProName;
+	}
+
+	public String getJobResponsibility() {
+		return jobResponsibility;
+	}
+
+	public void setJobResponsibility(String jobResponsibility) {
+		this.jobResponsibility = jobResponsibility;
+	}
+
+	public String getComplete() {
+		return complete;
+	}
+
+	public void setComplete(String complete) {
+		this.complete = complete;
+	}
+
+	public String getScoreStandard() {
+		return scoreStandard;
+	}
+
+	public void setScoreStandard(String scoreStandard) {
+		this.scoreStandard = scoreStandard;
+	}
+
+
 }

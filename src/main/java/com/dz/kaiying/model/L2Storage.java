@@ -7,7 +7,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "ky_l2_storage", catalog = "dzomsdb")
+@Table(name = "ky_l2_storage", catalog = "ky_dzomsdb")
 public class L2Storage implements java.io.Serializable {
 
 	@Id

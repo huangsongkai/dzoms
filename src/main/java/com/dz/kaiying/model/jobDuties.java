@@ -1,25 +1,42 @@
-package com.dz.kaiying.DTO;
+package com.dz.kaiying.model;
 // default package
+
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * Authority entity. @author MyEclipse Persistence Tools
  */
-public class DepartmentEvaluate implements java.io.Serializable {
+@Entity
+@Table(name = "jobDuties", catalog = "dzomsdb")
+public class jobDuties implements java.io.Serializable {
+
+	// Fields
 
 	/**
-	 *
+	 * 
 	 */
 	private static final long serialVersionUID = -7885510207958408068L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id", unique = true, nullable = false, columnDefinition = "主键")
 	private Integer id;
+
+	@Column(name = "proName", unique = true, nullable = false, columnDefinition = "项目名")
 	private String proName;
+
+	@Column(name = "childProName", unique = true, nullable = false, columnDefinition = "子项目")
 	private String childProName;
-	private Integer childProValue;
+
+	@Column(name = "jobResponsibility", unique = true, nullable = false, columnDefinition = "工作职责")
 	private String jobResponsibility;
-	private String jobStandard;
+
+	@Column(name = "complete", unique = true, nullable = false, columnDefinition = "完成情况")
 	private String complete;
+
+	@Column(name = "scoreStandard", unique = true, nullable = false, columnDefinition = "评分标准")
 	private String scoreStandard;
-	private String[] inputs;
-	private String ziping;
 
 
 	public static long getSerialVersionUID() {
@@ -50,28 +67,12 @@ public class DepartmentEvaluate implements java.io.Serializable {
 		this.childProName = childProName;
 	}
 
-	public Integer getChildProValue() {
-		return childProValue;
-	}
-
-	public void setChildProValue(Integer childProValue) {
-		this.childProValue = childProValue;
-	}
-
 	public String getJobResponsibility() {
 		return jobResponsibility;
 	}
 
 	public void setJobResponsibility(String jobResponsibility) {
 		this.jobResponsibility = jobResponsibility;
-	}
-
-	public String getJobStandard() {
-		return jobStandard;
-	}
-
-	public void setJobStandard(String jobStandard) {
-		this.jobStandard = jobStandard;
 	}
 
 	public String getComplete() {
@@ -88,21 +89,5 @@ public class DepartmentEvaluate implements java.io.Serializable {
 
 	public void setScoreStandard(String scoreStandard) {
 		this.scoreStandard = scoreStandard;
-	}
-
-	public String[] getInputs() {
-		return inputs;
-	}
-
-	public void setInputs(String[] inputs) {
-		this.inputs = inputs;
-	}
-
-	public String getZiping() {
-		return ziping;
-	}
-
-	public void setZiping(String ziping) {
-		this.ziping = ziping;
 	}
 }
