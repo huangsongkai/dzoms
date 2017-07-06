@@ -55,4 +55,20 @@ public class TimeUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return sdf.format(now.getTime());
     }
+
+    public static String getFirstMonthDateByYM(String ym){
+        if(ym.equals("")){
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
+            ym = formatter.format(new Date());
+        }
+       return "'"+ym+"-01"+"'";
+    }
+
+    public static String getLastMonthDateByYM(String ym){
+        if(ym.equals("")){
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
+            ym = formatter.format(new Date());
+        }
+        return "'"+ym+"-31 23:59:59"+"'";
+    }
 }
