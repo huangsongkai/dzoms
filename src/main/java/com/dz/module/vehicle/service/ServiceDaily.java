@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  * ServiceDaily entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "service_daily", catalog = "dzomsdb")
+@Table(name = "service_daily", catalog = "ky_dzomsdb")
 public class ServiceDaily implements java.io.Serializable {
 
 	// Fields

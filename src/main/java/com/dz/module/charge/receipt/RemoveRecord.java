@@ -9,7 +9,7 @@ import java.util.Date;
  *         Created on 16-3-6.
  */
 @Entity
-@Table(name = "`removerecord`",catalog = "dzomsdb")
+@Table(name = "`removerecord`",catalog = "ky_dzomsdb")
 public class RemoveRecord {
     @Id
     @GeneratedValue

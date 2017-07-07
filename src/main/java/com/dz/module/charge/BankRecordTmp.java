@@ -9,7 +9,7 @@ import java.util.Date;
  *         Created on 15-11-24.
  */
 @Entity
-@Table(catalog = "dzomsdb",name = "bankrecordtmp")
+@Table(catalog = "ky_dzomsdb",name = "bankrecordtmp")
 public class BankRecordTmp {
     @Id
     @GeneratedValue

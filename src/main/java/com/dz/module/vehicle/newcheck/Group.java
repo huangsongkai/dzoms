@@ -9,13 +9,13 @@ import java.util.Set;
  *         Created on 15-12-7.
  */
 @Entity
-@Table(name = "group",catalog = "dzomsdb")
+@Table(name = "group",catalog = "ky_dzomsdb")
 public class Group {
     @Id
     @GeneratedValue
     private int id;
     @ElementCollection(fetch = FetchType.LAZY)
-    @JoinTable(name = "group_checkerIds",catalog = "dzomsdb")
+    @JoinTable(name = "group_checkerIds",catalog = "ky_dzomsdb")
     private Set<Integer> checkerIds;
     @ManyToOne
     private Plan plan;

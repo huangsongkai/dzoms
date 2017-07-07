@@ -10,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "Trade", catalog = "dzomsdb")
+@Table(name = "Trade", catalog = "ky_dzomsdb")
 public class Trade {
 	@Id
 	@Column(unique = true, nullable = false, length = 30)

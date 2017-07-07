@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * ListValue entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "list_value", catalog = "dzomsdb")
+@Table(name = "list_value", catalog = "ky_dzomsdb")
 public class ListValue implements java.io.Serializable {
 
 	// Fields

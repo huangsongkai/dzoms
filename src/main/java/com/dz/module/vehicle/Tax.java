@@ -10,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "Tax", catalog = "dzomsdb")
+@Table(name = "Tax", catalog = "ky_dzomsdb")
 public class Tax implements java.io.Serializable {
 	@Id
 	@Column(unique = true, nullable = false, length = 30)

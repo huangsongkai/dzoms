@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
-  <process id="item_grant" isExecutable="true">
+  <process id="item_grant" isExecutable="true" name="物品发放">
     <startEvent id="sid-2BE59532-501B-4AA4-8C22-C6E70F00BE8C" name="物品领用申请">
       <extensionElements>
-        <activiti:formProperty id="item_id" name="item_id" type="long"></activiti:formProperty>
-        <activiti:formProperty id="item_num" name="item_num" type="long"></activiti:formProperty>
-        <activiti:formProperty id="get_ department" name="get_ department" type="string"></activiti:formProperty>
+        <activiti:formProperty id="item_id" name="主键" type="long"></activiti:formProperty>
+        <activiti:formProperty id="item_num" name="商品名称" type="long"></activiti:formProperty>
+        <activiti:formProperty id="get_ department" name="领用部门" type="string"></activiti:formProperty>
+        <activiti:formProperty id="item_id" name="物品id" type="string"></activiti:formProperty>
       </extensionElements>
     </startEvent>
     <userTask id="sid-117CE627-39BA-491F-A662-DB37F31F8FE3" name="办公室主任审批">
@@ -35,8 +36,8 @@
     <intermediateThrowEvent id="sid-862468B9-DA8D-4FDD-A04A-A15FC8150883"></intermediateThrowEvent>
     <sequenceFlow id="sid-FD1494CF-1BDC-4FD3-B06D-A0EFA6D90FAD" sourceRef="sid-90B0DC50-70CE-4DFB-A9C8-AEE1AE86548D" targetRef="sid-862468B9-DA8D-4FDD-A04A-A15FC8150883"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_process">
-    <bpmndi:BPMNPlane bpmnElement="process" id="BPMNPlane_process">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_item_grant">
+    <bpmndi:BPMNPlane bpmnElement="item_grant" id="BPMNPlane_item_grant">
       <bpmndi:BPMNShape bpmnElement="sid-2BE59532-501B-4AA4-8C22-C6E70F00BE8C" id="BPMNShape_sid-2BE59532-501B-4AA4-8C22-C6E70F00BE8C">
         <omgdc:Bounds height="30.0" width="30.0" x="75.0" y="55.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

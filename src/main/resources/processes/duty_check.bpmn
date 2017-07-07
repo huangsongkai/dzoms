@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
-  <process id="duty_check" isExecutable="true">
+  <process id="duty_check" isExecutable="true" name="绩效考核" >
     <startEvent id="sid-FF43B632-0FFA-4961-87FC-376FCB6CDC6E" name="考核项生成"></startEvent>
     <userTask id="sid-29B25B2C-0C31-4D0E-8322-F23FDBDAFBA5" name="个人打分" activiti:formKey="/processes/start.form"></userTask>
     <sequenceFlow id="sid-454A9209-47F3-4271-8EF7-0635FA7D42EC" sourceRef="sid-FF43B632-0FFA-4961-87FC-376FCB6CDC6E" targetRef="sid-29B25B2C-0C31-4D0E-8322-F23FDBDAFBA5"></sequenceFlow>
@@ -13,8 +13,8 @@
     <intermediateThrowEvent id="sid-E8DBFC3C-E864-4C09-8BB9-EB4203F7A1EE"></intermediateThrowEvent>
     <sequenceFlow id="sid-58ECF5BC-9B79-4C0D-9BA9-FF64445FAECC" sourceRef="sid-200AF3D8-0290-4489-999F-8582812386F1" targetRef="sid-E8DBFC3C-E864-4C09-8BB9-EB4203F7A1EE"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_process">
-    <bpmndi:BPMNPlane bpmnElement="process" id="BPMNPlane_process">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_duty_check">
+    <bpmndi:BPMNPlane bpmnElement="duty_check" id="BPMNPlane_duty_check">
       <bpmndi:BPMNShape bpmnElement="sid-FF43B632-0FFA-4961-87FC-376FCB6CDC6E" id="BPMNShape_sid-FF43B632-0FFA-4961-87FC-376FCB6CDC6E">
         <omgdc:Bounds height="30.0" width="30.0" x="60.0" y="60.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

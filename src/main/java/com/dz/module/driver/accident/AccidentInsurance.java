@@ -8,7 +8,7 @@ import java.util.List;
  *         Created on 16-3-23.
  */
 @Entity
-@Table(name = "accidentinsurance",catalog = "dzomsdb")
+@Table(name = "accidentinsurance",catalog = "ky_dzomsdb")
 public class AccidentInsurance {
     @Id
     @GeneratedValue
@@ -36,7 +36,7 @@ public class AccidentInsurance {
     //事故教训
     private String acc_learn;
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "accidentinsurance_files",catalog = "dzomsdb")
+    @CollectionTable(name = "accidentinsurance_files",catalog = "ky_dzomsdb")
     private List<String> filePaths;
 
     public int getId() {

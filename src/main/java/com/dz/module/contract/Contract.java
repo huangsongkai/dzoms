@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
  * Contract entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "contract", catalog = "dzomsdb")
+@Table(name = "contract", catalog = "ky_dzomsdb")
 public class Contract implements java.io.Serializable {
 
 	// Fields

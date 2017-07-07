@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.*;
 
 @Entity
-@Table(name="peopleloss",catalog = "dzomsdb")
+@Table(name="peopleloss",catalog = "ky_dzomsdb")
 public class PeopleLoss {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

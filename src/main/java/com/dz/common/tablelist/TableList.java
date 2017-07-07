@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * TableList entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "table_list", catalog = "dzomsdb")
+@Table(name = "table_list", catalog = "ky_dzomsdb")
 public class TableList implements java.io.Serializable {
 
 	// Fields

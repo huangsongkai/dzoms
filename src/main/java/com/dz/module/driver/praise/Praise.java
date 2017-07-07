@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * Praise entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "praise", catalog = "dzomsdb")
+@Table(name = "praise", catalog = "ky_dzomsdb")
 public class Praise implements java.io.Serializable {
 
 	// Fields

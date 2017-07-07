@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Invoice", catalog = "dzomsdb")
+@Table(name = "Invoice", catalog = "ky_dzomsdb")
 public class Invoice implements java.io.Serializable {
 	@Id
 	@Column(unique = true, nullable = false, length = 30)

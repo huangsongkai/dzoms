@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
  * Servicespace entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "servicespace", catalog = "dzomsdb")
+@Table(name = "servicespace", catalog = "ky_dzomsdb")
 public class ServiceSpace implements java.io.Serializable {
 
 	// Fields

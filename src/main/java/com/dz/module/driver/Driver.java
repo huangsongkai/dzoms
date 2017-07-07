@@ -17,7 +17,7 @@ import com.dz.common.other.TimeComm;
  * Driver entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "driver", catalog = "dzomsdb")
+@Table(name = "driver", catalog = "ky_dzomsdb")
 public class Driver implements java.io.Serializable {
 
 	// Fields

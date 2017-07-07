@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
  * ElectricAnaylse entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "electric_anaylse", catalog = "dzomsdb")
+@Table(name = "electric_anaylse", catalog = "ky_dzomsdb")
 public class ElectricAnaylse implements java.io.Serializable {
 
 	// Fields

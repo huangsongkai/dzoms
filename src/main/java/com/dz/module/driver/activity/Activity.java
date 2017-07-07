@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * Activity entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "activity", catalog = "dzomsdb")
+@Table(name = "activity", catalog = "ky_dzomsdb")
 public class Activity implements java.io.Serializable {
 
 	// Fields

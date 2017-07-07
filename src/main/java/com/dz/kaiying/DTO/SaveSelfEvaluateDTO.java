@@ -1,7 +1,7 @@
 package com.dz.kaiying.DTO;
 // default package
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Authority entity. @author MyEclipse Persistence Tools
@@ -11,13 +11,16 @@ public class SaveSelfEvaluateDTO implements java.io.Serializable {
 	/**
 	 *工作自评DTO
 	 */
-	private List<SaveSelfEvaluateDetailDTO> selfEvaluate;
+	//private List<SaveSelfEvaluateDetailDTO> selfEvaluate;
+
+	private Map<Integer, SaveSelfEvaluateDetailDTO> selfEvaluate;
 	private Integer total;
-	public List<SaveSelfEvaluateDetailDTO> getSelfEvaluate() {
+
+	public Map<Integer, SaveSelfEvaluateDetailDTO> getSelfEvaluate() {
 		return selfEvaluate;
 	}
 
-	public void setSelfEvaluate(List<SaveSelfEvaluateDetailDTO> selfEvaluate) {
+	public void setSelfEvaluate(Map<Integer, SaveSelfEvaluateDetailDTO> selfEvaluate) {
 		this.selfEvaluate = selfEvaluate;
 	}
 

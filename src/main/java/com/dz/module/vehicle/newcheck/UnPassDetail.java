@@ -7,7 +7,7 @@ import javax.persistence.*;
  *         Created on 16-3-25.
  */
 @Entity
-@Table(name = "unpassdetail",catalog = "dzomsdb")
+@Table(name = "unpassdetail",catalog = "ky_dzomsdb")
 public class UnPassDetail {
     @Id
     @GeneratedValue

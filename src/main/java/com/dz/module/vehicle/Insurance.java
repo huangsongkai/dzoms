@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
  * Insurance entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "insurance", catalog = "dzomsdb")
+@Table(name = "insurance", catalog = "ky_dzomsdb")
 public class Insurance implements java.io.Serializable {
 
 	// Fields

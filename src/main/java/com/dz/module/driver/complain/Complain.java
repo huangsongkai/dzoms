@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * Complain entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "complain", catalog = "dzomsdb")
+@Table(name = "complain", catalog = "ky_dzomsdb")
 public class Complain implements java.io.Serializable {
 
 	// Fields

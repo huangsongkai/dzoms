@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
  * Role entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "role", catalog = "dzomsdb", uniqueConstraints = @UniqueConstraint(columnNames = "rname"))
+@Table(name = "role", catalog = "ky_dzomsdb", uniqueConstraints = @UniqueConstraint(columnNames = "rname"))
 public class Role implements java.io.Serializable {
 
 	// Fields

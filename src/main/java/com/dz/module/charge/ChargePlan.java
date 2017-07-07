@@ -13,7 +13,7 @@ import java.util.Date;
  * Created on 15-11-8.
  */
 @Entity
-@Table(name="charge_plan",catalog = "dzomsdb")
+@Table(name="charge_plan",catalog = "ky_dzomsdb")
 public class ChargePlan {
     @Id
     @GeneratedValue

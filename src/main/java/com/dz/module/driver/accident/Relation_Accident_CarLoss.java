@@ -3,7 +3,7 @@ package com.dz.module.driver.accident;
 import javax.persistence.*;
 
 @Entity
-@Table(name="relation_accident_carLoss",catalog = "dzomsdb")
+@Table(name="relation_accident_carLoss",catalog = "ky_dzomsdb")
 public class Relation_Accident_CarLoss {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

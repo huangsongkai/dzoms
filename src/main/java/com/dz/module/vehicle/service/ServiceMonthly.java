@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  * ServiceMonthly entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "service_monthly", catalog = "dzomsdb")
+@Table(name = "service_monthly", catalog = "ky_dzomsdb")
 public class ServiceMonthly implements java.io.Serializable {
 
 	// Fields

@@ -156,23 +156,24 @@ public class JobDutiesService extends BaseService{
         selfEvaluate.setEvaluateName("从流程或者从页面中取出");
         selfEvaluate.setTotal(selfEvaluateDTO.getTotal());//总分
         Integer id = selfEvaluateDao.save(selfEvaluate);
-        if (selfEvaluateDTO != null){
-            for (SaveSelfEvaluateDetailDTO selfEvaluateDetailDTO : selfEvaluateDTO.getSelfEvaluate()) {
-                String inputs =  "";
-                SelfEvaluateDetail selfEvaluateDetail = new SelfEvaluateDetail();
-                for (String input : selfEvaluateDetailDTO.getInputs()) {
-                    if (selfEvaluateDetailDTO.getInputs().length == selfEvaluateDetailDTO.getInputs().length ){
-                        inputs +=input;
-                    }else{
-                        inputs +=input+"^";
-                    }
+
+        for (Map.Entry<Integer, SaveSelfEvaluateDetailDTO> entry : selfEvaluateDTO.getSelfEvaluate().entrySet()) {
+            Integer key = entry.getKey();
+            SaveSelfEvaluateDetailDTO selfEvaluateDetailDTO = entry.getValue();
+            String inputs =  "";
+            SelfEvaluateDetail selfEvaluateDetail = new SelfEvaluateDetail();
+            for (String input : selfEvaluateDetailDTO.getInputs()) {
+                if (selfEvaluateDetailDTO.getInputs().length == selfEvaluateDetailDTO.getInputs().length ){
+                    inputs +=input;
+                }else{
+                    inputs +=input+"^";
                 }
-                selfEvaluateDetail.setInputs(inputs);
-                selfEvaluateDetail.setScore(selfEvaluateDetailDTO.getScore());
-                selfEvaluateDetail.setSelfEvaluateId(id);
-                selfEvaluateDetail.setJobDutyId(selfEvaluateDetailDTO.getId());
-                selfEvaluateDetailDao.save(selfEvaluateDetail);
             }
+            selfEvaluateDetail.setInputs(inputs);
+            selfEvaluateDetail.setScore(selfEvaluateDetailDTO.getScore());
+            selfEvaluateDetail.setSelfEvaluateId(id);
+            selfEvaluateDetail.setJobDutyId(key);
+            selfEvaluateDetailDao.save(selfEvaluateDetail);
         }
         result.setSuccess("保存成功",null);
         return result;

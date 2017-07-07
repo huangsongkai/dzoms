@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * Serviceerror entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "serviceerror", catalog = "dzomsdb")
+@Table(name = "serviceerror", catalog = "ky_dzomsdb")
 public class ServiceError implements java.io.Serializable {
 
 	// Fields

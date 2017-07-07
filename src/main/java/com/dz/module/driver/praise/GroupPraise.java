@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * GroupPraise entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "group_praise", catalog = "dzomsdb")
+@Table(name = "group_praise", catalog = "ky_dzomsdb")
 public class GroupPraise implements java.io.Serializable {
 
 	// Fields

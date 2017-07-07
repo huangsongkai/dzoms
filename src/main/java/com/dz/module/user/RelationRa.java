@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * RelationRa entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "relation_ra", catalog = "dzomsdb")
+@Table(name = "relation_ra", catalog = "ky_dzomsdb")
 public class RelationRa implements java.io.Serializable {
 
 	// Fields

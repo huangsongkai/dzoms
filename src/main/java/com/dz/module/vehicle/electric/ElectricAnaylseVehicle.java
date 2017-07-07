@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * ElectricAnaylseVehicle entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "electric_anaylse_vehicle", catalog = "dzomsdb")
+@Table(name = "electric_anaylse_vehicle", catalog = "ky_dzomsdb")
 public class ElectricAnaylseVehicle implements java.io.Serializable {
 
 	// Fields
