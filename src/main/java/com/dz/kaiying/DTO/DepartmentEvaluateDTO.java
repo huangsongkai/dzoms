@@ -19,7 +19,7 @@ public class DepartmentEvaluateDTO implements java.io.Serializable {
 	private String complete;
 	private String scoreStandard;
 	private String[] inputs;
-	private String ziping;
+	private Integer ziping;
 	private String evaluateName;
 
 	public String getEvaluateName() {
@@ -106,30 +106,11 @@ public class DepartmentEvaluateDTO implements java.io.Serializable {
 		this.inputs = inputs;
 	}
 
-	public String getZiping() {
+	public Integer getZiping() {
 		return ziping;
 	}
 
-	public void setZiping(String ziping) {
+	public void setZiping(Integer ziping) {
 		this.ziping = ziping;
 	}
-	//	{
-    //			"total":100
-    //			"selfEvaluate": [
-    //		{
-    //			"id": 1,
-    //				"inputs": [
-    //			"1",
-    //					"2"
-    //			],
-    //			"score": 1
-    //		}
-    //		]
-    //	}
-
-
-
-
-
-
 }

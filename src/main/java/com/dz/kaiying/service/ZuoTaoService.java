@@ -11,8 +11,7 @@ import java.util.List;
 /**
  * Created by huang on 2017/7/7.
  */
-//座套管
-
+//座套管理
 @Service
 public class ZuoTaoService extends BaseService{
     @Resource
@@ -23,6 +22,8 @@ public class ZuoTaoService extends BaseService{
     public Result listZT() {
         List zuoTaoList = zuoTaoDao.find("from ZuoTao");
         result.setSuccess("查询成功",zuoTaoList);
-        return result;          
+        return result;
     }
+
+
 }

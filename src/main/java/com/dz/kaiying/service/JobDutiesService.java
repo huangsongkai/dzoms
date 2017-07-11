@@ -51,9 +51,10 @@ public class JobDutiesService extends BaseService{
 
 
 
-    public List<JobDuty> queryAll() {
+    public Result<JobDuty> queryAll() {
       List<JobDuty> JobDutiesList = jobDutyDao.find("from JobDuty");
-        return JobDutiesList;
+        result.setSuccess("查询成功",JobDutiesList);
+        return result;
     }
 
     public JobDuty queryById(int id) {
@@ -133,8 +134,8 @@ public class JobDutiesService extends BaseService{
         HttpSession session = request.getSession();
         List <selfEvaluateDTO> selfEvaluateDTOList = new ArrayList<>();
         if (session != null){
-            String userId = (String) session.getAttribute("userId");
-            userId = "33";
+            User user = (User) session.getAttribute("user");
+            Integer userId = user.getUid();
             List<UserJobDuties> userJobDutiesList = userJobDutiesDao.find(" from UserJobDuties where personId = " + userId);
             for (UserJobDuties userJobDuties: userJobDutiesList) {
                 selfEvaluateDTO selfEvaluateDTO = new selfEvaluateDTO();
@@ -200,7 +201,7 @@ public class JobDutiesService extends BaseService{
             departmentEvaluateDTO.setScoreStandard(jobDuty.getScoreStandard());
             departmentEvaluateDTO.setId(selfEvaluateDetail.getJobDutyId());
             departmentEvaluateDTO.setProName(jobDuty.getProName());
-            departmentEvaluateDTO.setZiping( selfEvaluateDetail.getScore()+"");
+            departmentEvaluateDTO.setZiping( selfEvaluateDetail.getScore());
             departmentEvaluateDTO.setEvaluateName(selfEvaluate.get(0).getEvaluateName());
             DepartmentEvaluateDTOList.add(departmentEvaluateDTO);
             }
@@ -218,11 +219,13 @@ public class JobDutiesService extends BaseService{
         deparmentEvaluate.setTotal(saveDepartmentEvaluateDTO.getTotal());//总分
         Integer id = deparmentEvaluateDao.save(deparmentEvaluate);
         if (saveDepartmentEvaluateDTO != null){
-            for (SaveDepartmentEvaluateDetailDTO saveDepartmentEvaluateDetailDTO: saveDepartmentEvaluateDTO.getDepartmentEvaluate()) {
+            for (Map.Entry<Integer, Integer> entry : saveDepartmentEvaluateDTO.getDepartmentEvaluate().entrySet()) {
+                Integer key = entry.getKey();
+                Integer value = entry.getValue();
                 DeparmentEvaluateDetail deparmentEvaluateDetail = new DeparmentEvaluateDetail();
-                deparmentEvaluateDetail.setScore(saveDepartmentEvaluateDetailDTO.getScore());
+                deparmentEvaluateDetail.setScore(value);
                 deparmentEvaluateDetail.setDeparmentEvaluateId(id);
-                deparmentEvaluateDetail.setJobDutyId(saveDepartmentEvaluateDetailDTO.getId());
+                deparmentEvaluateDetail.setJobDutyId(key);
                 deparmentEvaluateDetailDao.save(deparmentEvaluateDetail);
             }
         }
@@ -251,8 +254,8 @@ public class JobDutiesService extends BaseService{
             managerEvaluateDTO.setScoreStandard(jobDuty.getScoreStandard());
             managerEvaluateDTO.setId(deparmentEvaluateDetail.getJobDutyId());
             managerEvaluateDTO.setProName(jobDuty.getProName());
-            managerEvaluateDTO.setZiping(selfEvaluateDetailList.get(0).getScore()+"");
-            managerEvaluateDTO.setBumen(deparmentEvaluateDetail.getScore()+"");
+            managerEvaluateDTO.setZiping(selfEvaluateDetailList.get(0).getScore());
+            managerEvaluateDTO.setBumen(deparmentEvaluateDetail.getScore());
             managerEvaluateDTO.setEvaluateName(selfEvaluate.get(0).getEvaluateName());
             managerEvaluateDTOList.add(managerEvaluateDTO);
         }
@@ -271,15 +274,48 @@ public class JobDutiesService extends BaseService{
         managerEvaluate.setTotal(saveManagerEvaluateDTO.getTotal());//总分
         Integer id = managerEvaluateDao.save(managerEvaluate);
         if (saveManagerEvaluateDTO != null){
-            for (SaveManagerEvaluateDetailDTO saveManager : saveManagerEvaluateDTO.getManagerEvaluate()) {
+            for (Map.Entry<Integer, Integer> entry : saveManagerEvaluateDTO.getManagerEvaluate().entrySet()) {
+                Integer key = entry.getKey();
+                Integer value = entry.getValue();
                 ManagerEvaluateDetail managerEvaluateDetail = new ManagerEvaluateDetail();
-                managerEvaluateDetail.setScore(saveManager.getScore());
+                managerEvaluateDetail.setScore(value);
                 managerEvaluateDetail.setManagerEvaluateId(id);
-                managerEvaluateDetail.setJobDutyId(saveManager.getId());
+                managerEvaluateDetail.setJobDutyId(key);
                 managerEvaluateDetailDao.save(managerEvaluateDetail);
             }
         }
         result.setSuccess("保存成功",null);
+        return result;
+    }
+
+    public Result listHistory(String personId) {
+        List<ManagerEvaluateDTO> managerEvaluateDTOList = new ArrayList<ManagerEvaluateDTO>();
+        List<DeparmentEvaluate> deparmentEvaluate = deparmentEvaluateDao.find("from DeparmentEvaluate where evaluateName = "+"从流程取出name"); //自评分主表 拼条件
+        List<DeparmentEvaluateDetail>  deparmentEvaluateDetailList = deparmentEvaluateDetailDao.find("from DeparmentEvaluateDetail where deparmentEvaluateId =" + deparmentEvaluate.get(0).getId());
+        for ( DeparmentEvaluateDetail deparmentEvaluateDetail: deparmentEvaluateDetailList ) {
+            List<JobDuty> jobDutyList = jobDutyDao.find(" from JobDuty where id = " + deparmentEvaluateDetail.getJobDutyId());
+            List<UserJobDuties> userJobDutiesList = userJobDutiesDao.find(" from UserJobDuties where personId = " + "从流程中获取"+" and jobDutiesId = "+deparmentEvaluateDetail.getJobDutyId() );
+            UserJobDuties userJobDuties = userJobDutiesList.get(0);
+            JobDuty jobDuty = jobDutyList.get(0);
+            List<SelfEvaluate> selfEvaluate = selfEvaluateDao.find("from SelfEvaluate "); //自评分主表 拼条件
+            List<SelfEvaluateDetail>  selfEvaluateDetailList = selfEvaluateDetailDao.find("from SelfEvaluateDetail where selfEvaluateId =" + selfEvaluate.get(0).getId() +"and jobDutyId ="+deparmentEvaluateDetail.getJobDutyId());
+            ManagerEvaluateDTO managerEvaluateDTO = new ManagerEvaluateDTO();
+            managerEvaluateDTO.setChildProName(jobDuty.getChildProName());
+            managerEvaluateDTO.setChildProValue(userJobDuties.getScore());
+            managerEvaluateDTO.setComplete(jobDuty.getComplete());
+            managerEvaluateDTO.setInputs(deparmentEvaluateDetail.getInputs().split("^"));
+            managerEvaluateDTO.setJobResponsibility(jobDuty.getJobResponsibility());
+            managerEvaluateDTO.setJobStandard(jobDuty.getJobStandard());
+            managerEvaluateDTO.setScoreStandard(jobDuty.getScoreStandard());
+            managerEvaluateDTO.setId(deparmentEvaluateDetail.getJobDutyId());
+            managerEvaluateDTO.setProName(jobDuty.getProName());
+            managerEvaluateDTO.setZiping(selfEvaluateDetailList.get(0).getScore());
+            managerEvaluateDTO.setBumen(deparmentEvaluateDetail.getScore());
+            managerEvaluateDTO.setEvaluateName(selfEvaluate.get(0).getEvaluateName());
+            managerEvaluateDTOList.add(managerEvaluateDTO);
+        }
+
+        result.setSuccess("查询成功",null);
         return result;
     }
 }

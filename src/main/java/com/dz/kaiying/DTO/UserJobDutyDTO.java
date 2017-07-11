@@ -3,7 +3,6 @@ package com.dz.kaiying.DTO;
 
 public class UserJobDutyDTO implements java.io.Serializable {
 	private Integer key;
-
 	private Integer score;
 
 

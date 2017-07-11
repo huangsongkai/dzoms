@@ -19,6 +19,11 @@
     <div id="proManagement"></div>
 </div>
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        url : "/DZOMS/ky/duty"  //增删改
+    }
+</script>
 <script src="/DZOMS/ky/js/commonV3.js"></script>
 <script src="/DZOMS/ky/js/kpAll-bundle.js"></script>
 </html>

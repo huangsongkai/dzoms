@@ -19,6 +19,11 @@
         <div id="personalPerformance"></div>
     </div>
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        selfEvaluateUrl : "/DZOMS/ky/duty/selfEvaluate" , //get 个人绩效请求数据
+    }
+</script>
     <script src="/DZOMS/ky/js/commonV3.js"></script>
     <script src="/DZOMS/ky/js/kpAll-bundle.js"></script>
 </html>

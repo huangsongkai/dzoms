@@ -2,9 +2,10 @@ package com.dz.kaiying.controller;
 
 import com.dz.kaiying.DTO.SaveDepartmentEvaluateDTO;
 import com.dz.kaiying.DTO.SaveManagerEvaluateDTO;
-import com.dz.kaiying.DTO.SaveUserJobDutyDTO;
 import com.dz.kaiying.DTO.SaveSelfEvaluateDTO;
+import com.dz.kaiying.DTO.SaveUserJobDutyDTO;
 import com.dz.kaiying.model.JobDuty;
+import com.dz.kaiying.service.ActivitiUtilService;
 import com.dz.kaiying.service.JobDutiesService;
 import com.dz.kaiying.util.Result;
 import com.dz.module.user.User;
@@ -24,24 +25,33 @@ import java.util.List;
 public class JobDutyController {
     @Resource
     JobDutiesService jobDutiesService;
+    @Resource
+    ActivitiUtilService activitiUtilService;
 
+//        /**
+//         * 启动绩效考核
+//         * @return
+//         */
+//        @RequestMapping(value = "/start", method = RequestMethod.GET)
+//        @ResponseBody
+//        public Result startPurchase(){
+//            Map map = new HashMap();
+//            return activitiUtilService.startProcessByRuntime("item_purchase",map);
+//        }
         /**
          * （总）工作职责
          * @return
          */
         @RequestMapping(value = "", method = RequestMethod.GET)
         @ResponseBody
-        public List<JobDuty> Query(){
-            System.out.println("查询全部");
+        public Result<JobDuty> Query(){
             return jobDutiesService.queryAll();
         }
-
         @RequestMapping(value = "/{dutyId}", method = RequestMethod.GET)
-            @ResponseBody
-            public JobDuty QueryById(@PathVariable  Integer dutyId){
-                JobDuty jobDutiesList = jobDutiesService.queryById(dutyId);
-                System.out.println("根据id查询");
-                return jobDutiesList;
+        @ResponseBody
+        public JobDuty QueryById(@PathVariable  Integer dutyId){
+            JobDuty jobDutiesList = jobDutiesService.queryById(dutyId);
+            return jobDutiesList;
         }
 
         @RequestMapping(value = "", method = RequestMethod.POST)
@@ -96,7 +106,6 @@ public class JobDutyController {
         public Result saveUserUserJob(@RequestBody SaveUserJobDutyDTO saveUserJobDutiesDTO){
             return jobDutiesService.saveUserJob(saveUserJobDutiesDTO);
         }
-
         /**
          * 绩效考核自评
          * @param request
@@ -145,6 +154,16 @@ public class JobDutyController {
         public Result saveManagerEvaluate(@RequestBody SaveManagerEvaluateDTO saveManagerEvaluateDTO, HttpServletRequest request) throws Exception {
             return jobDutiesService.saveManagerEvaluate(saveManagerEvaluateDTO, request);
         }
+        /**
+         * 考评历史信息
+         * historyxinxi
+         */
+        // TODO: 2017/7/10  personId从哪里获得
+        @RequestMapping(value = "/history", method = RequestMethod.GET)
+        @ResponseBody
+       public Result history(String personId){
+            return jobDutiesService.listHistory(personId);
+        }
 
 
         /**
@@ -166,6 +185,20 @@ public class JobDutyController {
          */
         @RequestMapping(value = "/listselfEvaluate", method = RequestMethod.GET)
         public String listselfEvaluate () throws Exception {
+            return "duty/self_evaluate";
+        }
+        /**
+         * 跳转部门经理考核页面
+         */
+        @RequestMapping(value = "/listmanagerEvaluate", method = RequestMethod.GET)
+        public String listmanagerEvaluate () throws Exception {
+            return "duty/self_evaluate";
+        }
+        /**
+         * 跳转考评小组打分
+         */
+        @RequestMapping(value = "/listgroupEvaluate", method = RequestMethod.GET)
+        public String listgroupEvaluate () throws Exception {
             return "duty/self_evaluate";
         }
 

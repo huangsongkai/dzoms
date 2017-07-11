@@ -57,7 +57,8 @@ public class ProcessController {
     @RequestMapping(value="/startForm/{processKey}", method= RequestMethod.POST)
     @ResponseBody
     public Result startForm(@PathVariable String processKey, HttpServletRequest request) {
-        String userId = "Huang";//        request.getSession().getAttribute("userId");
+        String userId = "Huang";
+        request.getSession().getAttribute("userId");
         String processInstanceId = activitiService.startForm(userId, processKey, request.getParameterMap());
         return resultWrapper.success("activity/task_list");
     }
