@@ -28,7 +28,7 @@
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/dzomsdb"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/ky_dzomsdb"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
 	</bean>
@@ -76,7 +76,7 @@
 	<!--activiti-->
 
 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
-		<property name="deploymentResources" value="classpath*:processes/*.bpmn" />
+		<property name="deploymentResources" value="classpath*:processes/*" />
 		<!--<property name="deploymentResources" value="classpath:processes/*.bpmn" />  -->
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="txManager" />

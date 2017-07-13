@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * Servicedetail entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "servicedetail", catalog = "dzomsdb")
+@Table(name = "servicedetail", catalog = "ky_dzomsdb")
 public class ServiceDetail implements java.io.Serializable {
 
 	// Fields

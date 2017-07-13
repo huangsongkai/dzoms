@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
-@Table(name="accident",catalog = "dzomsdb")
+@Table(name="accident",catalog = "ky_dzomsdb")
 public class Accident {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

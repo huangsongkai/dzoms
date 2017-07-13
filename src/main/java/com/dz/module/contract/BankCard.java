@@ -16,7 +16,7 @@ import static com.dz.common.other.TimeComm.*;
  * BankCard entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "bank_card", catalog = "dzomsdb", uniqueConstraints = {
+@Table(name = "bank_card", catalog = "ky_dzomsdb", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "cardNumber") })
 public class BankCard implements java.io.Serializable {
 

@@ -15,7 +15,7 @@ import javax.persistence.UniqueConstraint;
  * BusinessLicense entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "business_license", catalog = "dzomsdb", uniqueConstraints = @UniqueConstraint(columnNames = "license_num"))
+@Table(name = "business_license", catalog = "ky_dzomsdb", uniqueConstraints = @UniqueConstraint(columnNames = "license_num"))
 public class BusinessLicense implements java.io.Serializable {
 
 	// Fields

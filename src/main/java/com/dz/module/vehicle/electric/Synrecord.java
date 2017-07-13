@@ -18,7 +18,7 @@ import javax.persistence.Table;
  * Synrecord entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "synrecord", catalog = "dzomsdb")
+@Table(name = "synrecord", catalog = "ky_dzomsdb")
 public class Synrecord implements java.io.Serializable {
 
 	// Fields

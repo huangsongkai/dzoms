@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "ServiceInfo", catalog = "dzomsdb")
+@Table(name = "ServiceInfo", catalog = "ky_dzomsdb")
 public class ServiceInfo implements Serializable {
 	/**
 	 * 

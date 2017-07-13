@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="itemtool",catalog = "dzomsdb")
+@Table(name="itemtool",catalog = "ky_dzomsdb")
 public class ItemTool {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

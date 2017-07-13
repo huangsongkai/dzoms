@@ -9,7 +9,7 @@ import java.util.List;
  *         Created on 15-12-7.
  */
 @Entity
-@Table(name = "checkrecord",catalog = "dzomsdb")
+@Table(name = "checkrecord",catalog = "ky_dzomsdb")
 public class CheckRecord {
     @Id
     @GeneratedValue

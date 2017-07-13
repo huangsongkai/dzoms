@@ -7,7 +7,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Families entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "families", catalog = "dzomsdb")
+@Table(name = "families", catalog = "ky_dzomsdb")
 public class Families implements java.io.Serializable {
 
 	// Fields

@@ -8,7 +8,7 @@ import java.util.Date;
  *         Created on 15-11-17.
  */
 @Entity
-@Table(catalog = "dzomsdb",name = "cleartime")
+@Table(catalog = "ky_dzomsdb",name = "cleartime")
 public class ClearTime {
     @Id
     @GeneratedValue

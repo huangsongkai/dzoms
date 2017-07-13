@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * InvoiceStock entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "invoice_stock", catalog = "dzomsdb")
+@Table(name = "invoice_stock", catalog = "ky_dzomsdb")
 public class InvoiceStock implements java.io.Serializable {
 
 	// Fields

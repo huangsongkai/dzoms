@@ -16,7 +16,7 @@ import java.util.List;
  *         Created on 15-11-8.
  */
 @Entity
-@Table(name="batchplan",catalog = "dzomsdb")
+@Table(name="batchplan",catalog = "ky_dzomsdb")
 public class BatchPlan {
     @Id
     @GeneratedValue
@@ -26,7 +26,7 @@ public class BatchPlan {
     private List<ChargePlan> chargePlanList = new ArrayList<ChargePlan>();
     //所涉及的合同列表
     @ElementCollection(fetch = FetchType.EAGER)
-    @JoinTable(catalog = "dzomsdb",name="batchplan_contractidlist")
+    @JoinTable(catalog = "ky_dzomsdb",name="batchplan_contractidlist")
     @OrderColumn
     private List<Integer> contractIdList = new ArrayList<Integer>();
     //批处理开始时间

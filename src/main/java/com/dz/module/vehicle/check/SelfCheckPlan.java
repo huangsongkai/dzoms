@@ -9,7 +9,7 @@ import java.util.Date;
  *         车辆自检计划
  */
 @Entity
-@Table(name = "selfcheckplan",catalog = "dzomsdb")
+@Table(name = "selfcheckplan",catalog = "ky_dzomsdb")
 public class SelfCheckPlan {
     /**
      * 自检计划id

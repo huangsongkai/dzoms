@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * ActivityDriver entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "activity_driver", catalog = "dzomsdb")
+@Table(name = "activity_driver", catalog = "ky_dzomsdb")
 public class ActivityDriver implements java.io.Serializable {
 
 	// Fields

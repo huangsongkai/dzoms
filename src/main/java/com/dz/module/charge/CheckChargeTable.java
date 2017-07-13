@@ -17,7 +17,7 @@ import org.apache.commons.lang3.math.NumberUtils;
  *         Created on 15-11-15.
  */
 @Entity
-@Table(name="CheckChargeTable",catalog = "dzomsdb")
+@Table(name="CheckChargeTable",catalog = "ky_dzomsdb")
 public class CheckChargeTable implements java.io.Serializable {
 	@Id
 	@GeneratedValue

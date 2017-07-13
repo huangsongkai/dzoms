@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
  * Driverincar entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "driverincar", catalog = "dzomsdb")
+@Table(name = "driverincar", catalog = "ky_dzomsdb")
 public class Driverincar implements java.io.Serializable {
 
 	// Fields

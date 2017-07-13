@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
  * Driverleave entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "driverleave", catalog = "dzomsdb")
+@Table(name = "driverleave", catalog = "ky_dzomsdb")
 public class Driverleave implements java.io.Serializable {
 
 	// Fields

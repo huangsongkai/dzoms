@@ -9,7 +9,7 @@ import javax.persistence.*;
  *         Created on 15-11-20.
  */
 @Entity
-@Table(catalog = "dzomsdb",name = "bankfile")
+@Table(catalog = "ky_dzomsdb",name = "bankfile")
 public class BankFile {
     @Id
     @GeneratedValue

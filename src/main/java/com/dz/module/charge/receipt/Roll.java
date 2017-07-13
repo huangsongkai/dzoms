@@ -10,7 +10,7 @@ import javax.persistence.Table;
  *         Created on 15-12-28.
  */
 @Entity
-@Table(name = "`roll`",catalog = "dzomsdb")
+@Table(name = "`roll`",catalog = "ky_dzomsdb")
 public class Roll {
     @Id
     @GeneratedValue

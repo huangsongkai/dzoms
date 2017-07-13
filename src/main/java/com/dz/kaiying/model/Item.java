@@ -7,7 +7,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "ky_item", catalog = "dzomsdb")
+@Table(name = "ky_item", catalog = "ky_dzomsdb")
 public class Item implements java.io.Serializable {
 
 	@Id

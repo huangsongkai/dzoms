@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * ElectricFromHtml entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "electric_from_html", catalog = "dzomsdb")
+@Table(name = "electric_from_html", catalog = "ky_dzomsdb")
 public class ElectricFromHtml implements java.io.Serializable {
 
 	// Fields

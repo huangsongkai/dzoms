@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * ElectricHistory entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "electric_history", catalog = "dzomsdb")
+@Table(name = "electric_history", catalog = "ky_dzomsdb")
 public class ElectricHistory implements java.io.Serializable {
 
 	// Fields

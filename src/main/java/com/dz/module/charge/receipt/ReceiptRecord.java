@@ -9,7 +9,7 @@ import java.util.Date;
  *         Created on 15-12-28.
  */
 @Entity
-@Table(name = "`receiptrecord`",catalog = "dzomsdb")
+@Table(name = "`receiptrecord`",catalog = "ky_dzomsdb")
 public class ReceiptRecord implements Comparable<ReceiptRecord>{
     @Id
     @GeneratedValue

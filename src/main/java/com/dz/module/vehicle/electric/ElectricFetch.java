@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * ElectricFetch entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "electric_fetch", catalog = "dzomsdb")
+@Table(name = "electric_fetch", catalog = "ky_dzomsdb")
 public class ElectricFetch implements java.io.Serializable {
 
 	// Fields

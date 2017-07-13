@@ -13,4 +13,9 @@
 <body>
 
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        selfEvaluateUrl : "/DZOMS/ky/duty/selfEvaluate" , //get 个人绩效请求数据
+    }
+</script>
 </html>

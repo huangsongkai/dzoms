@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * Authority entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "authority", catalog = "dzomsdb")
+@Table(name = "authority", catalog = "ky_dzomsdb")
 public class Authority implements java.io.Serializable {
 
 	// Fields

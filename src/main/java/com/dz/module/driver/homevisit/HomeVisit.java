@@ -18,7 +18,7 @@ import javax.persistence.Table;
  * HomeVisit entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "home_visit", catalog = "dzomsdb")
+@Table(name = "home_visit", catalog = "ky_dzomsdb")
 public class HomeVisit implements java.io.Serializable {
 
 	// Fields

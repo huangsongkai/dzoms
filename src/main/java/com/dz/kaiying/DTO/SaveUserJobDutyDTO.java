@@ -4,7 +4,7 @@ package com.dz.kaiying.DTO;
 import java.util.Map;
 
 public class SaveUserJobDutyDTO implements java.io.Serializable {
-	private Map<Integer , String> jobList;
+	private Map<Integer, String> jobList;
 
 	private Integer personId;
 
@@ -23,4 +23,5 @@ public class SaveUserJobDutyDTO implements java.io.Serializable {
 	public void setPersonId(Integer personId) {
 		this.personId = personId;
 	}
+
 }

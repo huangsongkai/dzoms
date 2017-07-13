@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * InvoiceRecord entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "invoice_record", catalog = "dzomsdb")
+@Table(name = "invoice_record", catalog = "ky_dzomsdb")
 public class InvoiceRecord implements java.io.Serializable {
 
 	// Fields
