@@ -4,7 +4,7 @@ package com.dz.kaiying.DTO;
 /**
  * Authority entity. @author MyEclipse Persistence Tools
  */
-public class selfEvaluateDTO implements java.io.Serializable {
+public class SelfEvaluateDTO implements java.io.Serializable {
 
 	/**
 	 *

@@ -33,6 +33,12 @@ public class StatisticsController extends BaseController{
     @Resource
     private FinanceStatisticsService financeStatisticsService;
 
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(HttpServletRequest request) throws Exception {
+        return "statistics/index";
+    }
+
     @RequestMapping(value = "/driver/locationDistribution", method = RequestMethod.GET)
     @ResponseBody
     public Result driverLocationDistribution(HttpServletRequest request) throws Exception {

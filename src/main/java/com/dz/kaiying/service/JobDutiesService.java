@@ -132,33 +132,33 @@ public class JobDutiesService extends BaseService{
     public Result myEvaluate(HttpServletRequest request) throws Exception {
         SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM");
         HttpSession session = request.getSession();
-        List <selfEvaluateDTO> selfEvaluateDTOList = new ArrayList<>();
+        List <SelfEvaluateDTO> SelfEvaluateDTOList = new ArrayList<>();
         if (session != null){
             User user = (User) session.getAttribute("user");
             Integer userId = user.getUid();
             List<UserJobDuties> userJobDutiesList = userJobDutiesDao.find(" from UserJobDuties where personId = " + userId);
             for (UserJobDuties userJobDuties: userJobDutiesList) {
-                selfEvaluateDTO selfEvaluateDTO = new selfEvaluateDTO();
+                SelfEvaluateDTO SelfEvaluateDTO = new SelfEvaluateDTO();
                 List<JobDuty> jobDutyList = jobDutyDao.find(" from JobDuty where id = " + userJobDuties.getJobDutiesId());
-                BeanUtils.copyProperties(selfEvaluateDTO, jobDutyList.get(0));  //前边是空值 后边是有值得  进行对象copy
-                selfEvaluateDTO.setChildProValue(userJobDuties.getScore());
-                selfEvaluateDTO.setEvaluateName(dateFormater.format(new Date())+"绩效考核");
-                selfEvaluateDTOList.add(selfEvaluateDTO);
+                BeanUtils.copyProperties(SelfEvaluateDTO, jobDutyList.get(0));  //前边是空值 后边是有值得  进行对象copy
+                SelfEvaluateDTO.setChildProValue(userJobDuties.getScore());
+                SelfEvaluateDTO.setEvaluateName(dateFormater.format(new Date())+"绩效考核");
+                SelfEvaluateDTOList.add(SelfEvaluateDTO);
             }
-            result.setSuccess("查询成功", selfEvaluateDTOList);
+            result.setSuccess("查询成功", SelfEvaluateDTOList);
         }
         return result;
     }
     //把主表的id存在流程中 名称 selfEvaluateId
-    public Result saveMyEvaluate(SaveSelfEvaluateDTO selfEvaluateDTO, String userId) {
+    public Result saveMyEvaluate(SaveSelfEvaluateDTO SelfEvaluateDTO, String userId) {
         SelfEvaluate selfEvaluate = new SelfEvaluate();
         selfEvaluate.setCreateDate(new Date());
         selfEvaluate.setPersonId(userId);
         selfEvaluate.setEvaluateName("从流程或者从页面中取出");
-        selfEvaluate.setTotal(selfEvaluateDTO.getTotal());//总分
+        selfEvaluate.setTotal(SelfEvaluateDTO.getTotal());//总分
         Integer id = selfEvaluateDao.save(selfEvaluate);
 
-        for (Map.Entry<Integer, SaveSelfEvaluateDetailDTO> entry : selfEvaluateDTO.getSelfEvaluate().entrySet()) {
+        for (Map.Entry<Integer, SaveSelfEvaluateDetailDTO> entry : SelfEvaluateDTO.getSelfEvaluate().entrySet()) {
             Integer key = entry.getKey();
             SaveSelfEvaluateDetailDTO selfEvaluateDetailDTO = entry.getValue();
             String inputs =  "";

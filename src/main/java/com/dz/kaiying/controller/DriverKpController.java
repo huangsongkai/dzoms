@@ -19,7 +19,6 @@ public class DriverKpController extends BaseController{
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index () throws Exception {
-//        driverKpService.getDtos(previous);
         return "driverKp/index";
     }
 
