@@ -8,7 +8,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 //用户自评主表
 @Entity
-@Table(name = "ky_insurance", catalog = "ky_dzomsdb")
+@Table(name = "ky_accident", catalog = "ky_dzomsdb")
 public class Accident implements java.io.Serializable {
 
     @Id
