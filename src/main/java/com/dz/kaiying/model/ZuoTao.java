@@ -12,71 +12,82 @@ public class ZuoTao implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id")//车牌号
+	private Integer id;
+
 	@Column(name = "che_pai")//车牌号
-	private Integer chePai;
+	private String cph;
 
 	@Column(name = "xiao_zuo_po_sun")//小坐破损
-	private String xiaoZuoPoSun;
+	private String xzps;
 
 	@Column(name = "xiao_zuo_wo_zi")//小坐污渍
-	private String xiaoZoWuZi;
+	private String xzwz;
 
 	@Column(name = "da_zuo_po_sun")//大坐破损
-	private String DaZuoPoSun;
+	private String dzps;
 
 	@Column(name = "da_zuo_wu_zi")//大坐污渍
-	private String DaZuoWuZi;
+	private String dzwz;
 
-	@Column(name = "yuan_gong_gong_hao")//大坐污渍
-	private String yuanGongGongHao;
+	@Column(name = "yuan_gong_gong_hao")
+	private String employeeId;
 
 
-	public Integer getChePai() {
-		return chePai;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setChePai(Integer chePai) {
-		this.chePai = chePai;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getXiaoZuoPoSun() {
-		return xiaoZuoPoSun;
+	public String getCph() {
+		return cph;
 	}
 
-	public void setXiaoZuoPoSun(String xiaoZuoPoSun) {
-		this.xiaoZuoPoSun = xiaoZuoPoSun;
+	public void setCph(String cph) {
+		this.cph = cph;
 	}
 
-	public String getXiaoZoWuZi() {
-		return xiaoZoWuZi;
+	public String getXzps() {
+		return xzps;
 	}
 
-	public void setXiaoZoWuZi(String xiaoZoWuZi) {
-		this.xiaoZoWuZi = xiaoZoWuZi;
+	public void setXzps(String xzps) {
+		this.xzps = xzps;
 	}
 
-	public String getDaZuoPoSun() {
-		return DaZuoPoSun;
+	public String getXzwz() {
+		return xzwz;
 	}
 
-	public void setDaZuoPoSun(String daZuoPoSun) {
-		DaZuoPoSun = daZuoPoSun;
+	public void setXzwz(String xzwz) {
+		this.xzwz = xzwz;
 	}
 
-	public String getDaZuoWuZi() {
-		return DaZuoWuZi;
+	public String getDzps() {
+		return dzps;
 	}
 
-	public void setDaZuoWuZi(String daZuoWuZi) {
-		DaZuoWuZi = daZuoWuZi;
+	public void setDzps(String dzps) {
+		this.dzps = dzps;
 	}
 
-	public String getYuanGongGongHao() {
-		return yuanGongGongHao;
+	public String getDzwz() {
+		return dzwz;
 	}
 
-	public void setYuanGongGongHao(String yuanGongGongHao) {
-		this.yuanGongGongHao = yuanGongGongHao;
+	public void setDzwz(String dzwz) {
+		this.dzwz = dzwz;
+	}
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 }
 

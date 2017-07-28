@@ -19,6 +19,12 @@
     <div id="startForm"></div>
 </div>
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        startFormUrl : "/DZOMS/ky/activity/process/getStartFormProperties/" , //get
+        startFormSubmitUrl:"/DZOMS/ky/activity/process/startForm/" //post
+    }
+</script>
 <script src="/DZOMS/ky/js/commonV3.js"></script>
 <script src="/DZOMS/ky/js/processAll-bundle.js"></script>
 </html>

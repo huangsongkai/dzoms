@@ -111,6 +111,7 @@ public class HibernateDaoImpl<T, PK extends Serializable>  implements HibernateD
     @Override
     public void delete(T entity) {
         hibernateTemplate.delete(entity);
+        this.flush();
     }
 
     // 加锁并删除指定的实体
@@ -124,6 +125,7 @@ public class HibernateDaoImpl<T, PK extends Serializable>  implements HibernateD
     @Override
     public void deleteByKey(Class<T> c, PK id) {
         this.delete(this.load(c,id));
+
     }
 
     // 根据主键加锁并删除指定的实体

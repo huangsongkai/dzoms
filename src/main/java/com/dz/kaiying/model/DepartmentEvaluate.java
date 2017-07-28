@@ -8,8 +8,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 //用户自评主表
 @Entity
-@Table(name = "ky_deparment_evaluate", catalog = "ky_dzomsdb")
-public class DeparmentEvaluate implements java.io.Serializable {
+@Table(name = "ky_department_evaluate", catalog = "ky_dzomsdb")
+public class DepartmentEvaluate implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

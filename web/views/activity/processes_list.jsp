@@ -19,6 +19,12 @@
     <div id="processesList"></div>
 </div>
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        processesListUrl : "/DZOMS/ky/repository/process-definitions" , //get 流程列表
+        executeStartForm:"/DZOMS/ky/activity/process/startForm/"   //跳转到startForm页
+    }
+</script>
 <script src="/DZOMS/ky/js/commonV3.js"></script>
 <script src="/DZOMS/ky/js/processAll-bundle.js"></script>
 </html>

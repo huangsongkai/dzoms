@@ -7,8 +7,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "ky_l2_storage", catalog = "ky_dzomsdb")
-public class L2Storage implements java.io.Serializable {
+@Table(name = "ky_storage", catalog = "ky_dzomsdb")
+public class Storage implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -27,9 +27,8 @@ public class L2Storage implements java.io.Serializable {
 	@Column(name = "item_remarks")//备注
 	private String itemRemarks;
 
-	@Column(name = "item_state")//状态 1 正常状态
-	private String itemState;
-
+	@Column(name = "state")//状态 1为运营部商品 2 为办公室商品
+	private String state;
 
 	public Integer getId() {
 		return id;
@@ -71,12 +70,12 @@ public class L2Storage implements java.io.Serializable {
 		this.itemRemarks = itemRemarks;
 	}
 
-	public String getItemState() {
-		return itemState;
+	public String getState() {
+		return state;
 	}
 
-	public void setItemState(String itemState) {
-		this.itemState = itemState;
+	public void setState(String state) {
+		this.state = state;
 	}
 }
 

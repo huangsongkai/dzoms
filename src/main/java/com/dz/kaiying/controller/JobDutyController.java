@@ -28,6 +28,7 @@ public class JobDutyController {
     @Resource
     ActivitiUtilService activitiUtilService;
 
+
 //        /**
 //         * 启动绩效考核
 //         * @return
@@ -112,47 +113,47 @@ public class JobDutyController {
          * @return
          * @throws Exception
          */
-        @RequestMapping(value = "/selfEvaluate", method = RequestMethod.GET)
+        @RequestMapping(value = "/selfEvaluate/{taskId}", method = RequestMethod.GET)
         @ResponseBody
-        public Result myEvaluate(HttpServletRequest request) throws Exception {
-            return jobDutiesService.myEvaluate(request);
+        public Result myEvaluate(@PathVariable Integer taskId, HttpServletRequest request) throws Exception {
+            return jobDutiesService.myEvaluate(request, taskId);
         }
 
-        @RequestMapping(value = "/selfEvaluate", method = RequestMethod.POST)
+        @RequestMapping(value = "/selfEvaluate/{taskId}", method = RequestMethod.POST)
         @ResponseBody
-        public Result saveMyEvaluate(@RequestBody SaveSelfEvaluateDTO selfEvaluateDTO, HttpServletRequest request) throws Exception {
+        public Result saveMyEvaluate(@PathVariable Integer taskId, @RequestBody SaveSelfEvaluateDTO selfEvaluateDTO, HttpServletRequest request) throws Exception {
             HttpSession session = request.getSession();
-            String userId = (String) session.getAttribute("userId");
-            return jobDutiesService.saveMyEvaluate(selfEvaluateDTO,userId);
+            User user = (User) session.getAttribute("user");
+            return jobDutiesService.saveMyEvaluate(selfEvaluateDTO, user.getUid(), taskId);
         }
 
         /**
          * 绩效考核 部门考评
          */
 
-        @RequestMapping(value = "/departmentEvaluate", method = RequestMethod.GET)
+        @RequestMapping(value = "/departmentEvaluate/{taskId}", method = RequestMethod.GET)
         @ResponseBody
-        public Result departmentEvaluate( HttpServletRequest request ) throws Exception {
-            return jobDutiesService.departmentEvaluate(request);
+        public Result departmentEvaluate(@PathVariable Integer taskId,  HttpServletRequest request ) throws Exception {
+            return jobDutiesService.departmentEvaluate(request, taskId);
         }
-        @RequestMapping(value = "/savedepartmentEvaluate", method = RequestMethod.POST)
+        @RequestMapping(value = "/departmentEvaluate/{taskId}", method = RequestMethod.POST)
         @ResponseBody
-        public Result savedepartmentEvaluate( @RequestBody SaveDepartmentEvaluateDTO saveDepartmentEvaluateDTO, HttpServletRequest request ) throws Exception {
-            return jobDutiesService.savedepartmentEvaluate(saveDepartmentEvaluateDTO);
+        public Result savedepartmentEvaluate(@PathVariable Integer taskId,  @RequestBody SaveDepartmentEvaluateDTO saveDepartmentEvaluateDTO, HttpServletRequest request ) throws Exception {
+            return jobDutiesService.savedepartmentEvaluate(saveDepartmentEvaluateDTO, taskId);
         }
         /**
          * 绩效考核 经理考评
          */
 
-        @RequestMapping(value = "/managerEvaluate", method = RequestMethod.GET)
+        @RequestMapping(value = "/managerEvaluate/{taskId}", method = RequestMethod.GET)
         @ResponseBody
-        public Result managerEvaluate( HttpServletRequest request ) throws Exception {
-            return jobDutiesService.managerEvaluate(request);
+        public Result managerEvaluate(@PathVariable Integer taskId,  HttpServletRequest request ) throws Exception {
+            return jobDutiesService.managerEvaluate(request, taskId);
         }
-        @RequestMapping(value = "/saveManagerEvaluate", method = RequestMethod.POST)
+        @RequestMapping(value = "/managerEvaluate/{taskId}", method = RequestMethod.POST)
         @ResponseBody
-        public Result saveManagerEvaluate(@RequestBody SaveManagerEvaluateDTO saveManagerEvaluateDTO, HttpServletRequest request) throws Exception {
-            return jobDutiesService.saveManagerEvaluate(saveManagerEvaluateDTO, request);
+        public Result saveManagerEvaluate(@PathVariable Integer taskId, @RequestBody SaveManagerEvaluateDTO saveManagerEvaluateDTO, HttpServletRequest request) throws Exception {
+            return jobDutiesService.saveManagerEvaluate(saveManagerEvaluateDTO, request, taskId);
         }
         /**
          * 考评历史信息
@@ -161,8 +162,21 @@ public class JobDutyController {
         // TODO: 2017/7/10  personId从哪里获得
         @RequestMapping(value = "/history", method = RequestMethod.GET)
         @ResponseBody
-       public Result history(String personId){
-            return jobDutiesService.listHistory(personId);
+        public Result history(HttpServletRequest request){
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            return jobDutiesService.listHistory(user.getUid());
+        }
+
+        /**
+         * 考评历史纤细信息
+         * @param request
+         * @return
+         */
+        @RequestMapping(value = "/historyDetail/{id}", method = RequestMethod.GET)
+        @ResponseBody
+        public Result historyDetail(@PathVariable Integer id, HttpServletRequest request ){
+            return jobDutiesService.listHistoryDetail(id);
         }
 
 
@@ -192,18 +206,31 @@ public class JobDutyController {
          */
         @RequestMapping(value = "/listmanagerEvaluate", method = RequestMethod.GET)
         public String listmanagerEvaluate () throws Exception {
-            return "duty/self_evaluate";
+            return "duty/duty_manager";            
         }
         /**
          * 跳转考评小组打分
          */
         @RequestMapping(value = "/listgroupEvaluate", method = RequestMethod.GET)
         public String listgroupEvaluate () throws Exception {
-            return "duty/self_evaluate";
+            return "duty/department_evaluate";
         }
 
+        /**
+         * 跳转历史纤细信息
+         */
+        @RequestMapping(value = "/jumpHistory", method = RequestMethod.GET)
+        public String jumpHistory (HttpServletRequest request) throws Exception {
+            String id = request.getParameter("id");
+            request.setAttribute("id",id);
+            return "duty/history_evaluate_detail";
+        }
 
-
-
-
+        /**
+         * 跳转历史纤细信息
+         */
+        @RequestMapping(value = "/TZListHistory", method = RequestMethod.GET)
+        public String TZListHistory (HttpServletRequest request) throws Exception {
+            return "duty/history_evaluate_index";
+        }
 }

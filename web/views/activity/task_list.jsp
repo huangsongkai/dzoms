@@ -18,6 +18,13 @@
     </div>
     <div id="taskList"></div>
 </div>
+
+<script type="text/javascript">
+    var pageUrls ={
+        taskListUrl:"/DZOMS/ky/runtime/tasks",   //get    ?assignee=
+        executeUrl:"/DZOMS/ky/activity/task/execute/" //执行跳转时的url
+    }
+</script>
 </body>
     <script src="/DZOMS/ky/js/commonV3.js"></script>
     <script src="/DZOMS/ky/js/processAll-bundle.js"></script>

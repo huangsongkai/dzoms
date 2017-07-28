@@ -9,13 +9,22 @@
 <html>
 <head>
     <title>部门考评</title>
+    <link rel="stylesheet" href="/DZOMS/ky/css/kpStyle.css"/>
 </head>
 <body>
-
+<div class="container">
+    <div id="header">
+        <h2>部门考评</h2>
+    </div>
+    <div id="bumenkaoPing"></div>
+</div>
 </body>
 <script type="text/javascript">
     var pageUrls ={
-        selfEvaluateUrl : "/DZOMS/ky/duty/selfEvaluate" , //get 个人绩效请求数据
+        departmentEvaluate : "/DZOMS/ky/duty/departmentEvaluate/"+"${taskId}" , //get 个人绩效请求数据
+        jumpUrl:"/DZOMS/ky/activity/task/list"
     }
 </script>
+<script src="/DZOMS/ky/js/commonV3.js"></script>
+<script src="/DZOMS/ky/js/kpAll-bundle.js"></script>
 </html>

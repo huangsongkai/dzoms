@@ -19,6 +19,19 @@
     <div id="taskDetails"></div>
 </div>
 </body>
+<script type="text/javascript">
+    var pageUrls ={
+        chepaihaoUrl:"/chepaihaoA",   //如果该页有关于车牌号选择的
+        submitTasksUrl:"/DZOMS/ky/activity/task/", //提交数据 POST
+        getTasksUrl:"/DZOMS/ky/runtime/tasks/",
+        getTaskDataUrl:"/DZOMS/ky/history/historic-task-instances/",
+        getRuntimeDataUrl:"/DZOMS/ky/form/form-data?taskId=",
+        hisProcessUrl:"/DZOMS/ky/history/historic-process-instances/",
+        hisVariable:"/DZOMS/ky/history/historic-variable-instances?processInstanceId=",
+        jumpUrl:"/DZOMS/ky/activity/task/list",
+    }
+</script>
 <script src="/DZOMS/ky/js/commonV3.js"></script>
 <script src="/DZOMS/ky/js/processAll-bundle.js"></script>
 </html>
+

@@ -177,7 +177,7 @@ function setTheIframeH(size){
     </div> <!--! end of #header -->
 
 
-    <iframe name="body"  width="100%" height="600px" src="main2.jsp" scrolling="no"></iframe> 
+    <iframe name="body"  width="100%" STYLE="min-height: 600px;overflow-y: auto"  src="main2.jsp" scrolling="no"></iframe>
     
     <a href="#top"><span id="loct"></span></a>
     <!--<footer id="footer"><div class="container_12">

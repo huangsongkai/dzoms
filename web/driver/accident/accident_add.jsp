@@ -509,7 +509,7 @@
     </form>
    
   
-    <iframe name="subs" style="width: 100%;height: 1200px"></iframe>
+    <iframe name="subs" style="width: 100%; min-height:100px;"></iframe>
 
     <iframe name="hidefucker" style="display: none"></iframe>
 

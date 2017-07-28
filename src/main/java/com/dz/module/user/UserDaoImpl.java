@@ -42,7 +42,6 @@ public class UserDaoImpl implements UserDao {
 	/**
 	 * �û���¼��֤
 	 */
-	@Override
 	public String userLogin(User user) throws HibernateException {
 		// TODO Auto-generated method stub
 		String result = "success";
@@ -116,5 +115,26 @@ public class UserDaoImpl implements UserDao {
 			HibernateSessionFactory.closeSession();
 		}
 		return users;
+	}
+
+	@Override
+	public User getUserByUid(Integer uid) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = HibernateSessionFactory.getSession();
+			tx = (Transaction) session.beginTransaction();
+			Query query = session.createQuery("from User where uid='"+uid+"'");
+			//query.setString(0, "admin");
+			User userQ = (User)query.uniqueResult();
+			return userQ;
+		} catch (HibernateException e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			throw e;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
 	}
 }

@@ -1,6 +1,7 @@
 package com.dz.kaiying.service;
 
 import com.dz.kaiying.controller.activiti.ResultWrapper;
+import com.dz.kaiying.util.RequestHelper;
 import com.dz.kaiying.util.Result;
 import org.activiti.engine.*;
 import org.activiti.engine.form.StartFormData;
@@ -9,8 +10,10 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -36,6 +39,11 @@ public class ActivitiUtilService {
     FormService formService;
     @Resource
     private ResultWrapper resultWrapper;
+    @Resource
+    private ActivitiService activitiService;
+
+    private Result result = new Result();
+
 
     //-------------------工作流相关service导入-----------------------------
 
@@ -132,6 +140,11 @@ public class ActivitiUtilService {
         return processInstance.getId();
     }
 
-
+    public Result taskComplete(@PathVariable String id, HttpServletRequest request) {
+        Map<String, String> valsMap = RequestHelper.retrieveJsonFromRequest(request);
+        activitiService.complete(id, valsMap);
+        result.setSuccess("","");
+        return result;
+    }
 
 }

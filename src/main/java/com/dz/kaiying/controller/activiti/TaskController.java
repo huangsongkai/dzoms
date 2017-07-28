@@ -55,16 +55,16 @@ public class TaskController {
     }
 
     @RequestMapping(value="/execute/{taskId}", method= RequestMethod.GET)
-    public String toExecute(@PathVariable String taskId) {
+    public String toExecute(@PathVariable String taskId, HttpServletRequest request) {
         Task task = taskService.createTaskQuery().taskId(taskId).list().get(0);
-        if(task != null && task.getFormKey()!=null)
+        if(task != null && task.getFormKey()!=null){
+            request.setAttribute("taskId",task.getId());
             return task.getFormKey();
+        }
         List<TaskDTO> taskList = new ArrayList<>();
         TaskDTO taskDTO = new TaskDTO();
         return "activity/task_details";
     }
-
-
     @RequestMapping(value="/{id}", method= RequestMethod.GET)
     public Map taskNextStep(@PathVariable String id) {
         return activitiService.viewTask(id);
