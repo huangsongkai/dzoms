@@ -35,7 +35,7 @@ public class JobDutiesService extends BaseService{
     @Resource
     HibernateDao<SelfEvaluateDetail, Integer> selfEvaluateDetailDao;
     @Resource
-    HibernateDao<DeparmentEvaluate, Integer> deparmentEvaluateDao;
+    HibernateDao<DepartmentEvaluate, Integer> deparmentEvaluateDao;
     @Resource
     HibernateDao<DeparmentEvaluateDetail, Integer> deparmentEvaluateDetailDao;
     @Resource
@@ -128,7 +128,7 @@ public class JobDutiesService extends BaseService{
         return result;
     }
 
-    // TODO: 2017/5/24  session 获取那块的用户Id 
+    // TODO: 2017/5/24  session 获取那块的用户Id
     public Result myEvaluate(HttpServletRequest request) throws Exception {
         SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM");
         HttpSession session = request.getSession();
@@ -212,7 +212,7 @@ public class JobDutiesService extends BaseService{
 
     public Result savedepartmentEvaluate(SaveDepartmentEvaluateDTO saveDepartmentEvaluateDTO) {
         SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
-        DeparmentEvaluate deparmentEvaluate = new DeparmentEvaluate();
+        DepartmentEvaluate deparmentEvaluate = new DepartmentEvaluate();
         deparmentEvaluate.setCreateDate(new Date());
         deparmentEvaluate.setPersonId("流程中取出人的Id");
         deparmentEvaluate.setEvaluateName("从流程或者从页面中取出");
@@ -235,7 +235,7 @@ public class JobDutiesService extends BaseService{
 
     public Result managerEvaluate(HttpServletRequest request) {
         List<ManagerEvaluateDTO> managerEvaluateDTOList = new ArrayList<ManagerEvaluateDTO>();
-        List<DeparmentEvaluate> deparmentEvaluate = deparmentEvaluateDao.find("from DeparmentEvaluate where evaluateName = "+"从流程取出name"); //自评分主表 拼条件
+        List<DepartmentEvaluate> deparmentEvaluate = deparmentEvaluateDao.find("from DeparmentEvaluate where evaluateName = "+"从流程取出name"); //自评分主表 拼条件
         List<DeparmentEvaluateDetail>  deparmentEvaluateDetailList = deparmentEvaluateDetailDao.find("from DeparmentEvaluateDetail where deparmentEvaluateId =" + deparmentEvaluate.get(0).getId());
         for ( DeparmentEvaluateDetail deparmentEvaluateDetail: deparmentEvaluateDetailList ) {
             List<JobDuty> jobDutyList = jobDutyDao.find(" from JobDuty where id = " + deparmentEvaluateDetail.getJobDutyId());
@@ -290,7 +290,7 @@ public class JobDutiesService extends BaseService{
 
     public Result listHistory(String personId) {
         List<ManagerEvaluateDTO> managerEvaluateDTOList = new ArrayList<ManagerEvaluateDTO>();
-        List<DeparmentEvaluate> deparmentEvaluate = deparmentEvaluateDao.find("from DeparmentEvaluate where evaluateName = "+"从流程取出name"); //自评分主表 拼条件
+        List<DepartmentEvaluate> deparmentEvaluate = deparmentEvaluateDao.find("from DeparmentEvaluate where evaluateName = "+"从流程取出name"); //自评分主表 拼条件
         List<DeparmentEvaluateDetail>  deparmentEvaluateDetailList = deparmentEvaluateDetailDao.find("from DeparmentEvaluateDetail where deparmentEvaluateId =" + deparmentEvaluate.get(0).getId());
         for ( DeparmentEvaluateDetail deparmentEvaluateDetail: deparmentEvaluateDetailList ) {
             List<JobDuty> jobDutyList = jobDutyDao.find(" from JobDuty where id = " + deparmentEvaluateDetail.getJobDutyId());
