@@ -91,7 +91,11 @@ function afterDriverChange(){
 			}
 		});
 }
-
+function GetQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var result = window.location.search.substr(1).match(reg);
+    return result?decodeURIComponent(result[2]):null;
+}
 
 	
 	$(document).ready(function(){
@@ -144,9 +148,31 @@ function afterDriverChange(){
 						});
 	     			}
 				});
-				
+
+
+
 				$("#oldLicenseNum").val("黑A");
-				
+
+                if(GetQueryString("oldLicenseNum")){
+                    $("#oldLicenseNum").val(GetQueryString("oldLicenseNum"));
+                    var licenseNum = $("#oldLicenseNum").val();
+                    $.post("/DZOMS/common/doit",{"condition":"from Contract c where c.state=1 and c.carframeNum in (select v.carframeNum from Vehicle v where v.licenseNum='"+licenseNum+"') order by contractBeginDate desc "},function(data){
+                        var contract=data["affect"];
+                        if(contract!=undefined){
+                            var abandonedTime = new Date();
+                            abandonedTime.setTime(contract["abandonedTime"]["time"]);
+                            $("#terminationDate").val(abandonedTime.format("yyyy/MM/dd"));
+
+                            var abandonedFinalTime = new Date();
+                            abandonedFinalTime.setTime(contract["abandonedFinalTime"]["time"]);
+                            $("#procedureEndDate").val(abandonedFinalTime.format("yyyy/MM/dd"));
+
+                            var diff_day = abandonedFinalTime.diff(abandonedTime);
+                            $("#terminationDays").val(diff_day);
+                        }
+                    });
+                }
+
 				$('form').submit(function(){
 					if(!$('input[name="vehicleApproval.cartype"]:eq(0)').prop('checked')){
 						if($("#oldLicenseNum").val().length!=7){

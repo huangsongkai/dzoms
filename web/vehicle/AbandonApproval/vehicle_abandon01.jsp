@@ -38,7 +38,24 @@
 <link rel="stylesheet" href="/DZOMS/res/css/jquery.bigautocomplete.css" />
 <script type="text/javascript" src="/DZOMS/res/js/jquery.bigautocomplete.js" ></script>
 <script>
+	function GetQueryString(name){
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var result = window.location.search.substr(1).match(reg);
+		return result?decodeURIComponent(result[2]):null;
+	}
 $(document).ready(function(){
+	if(GetQueryString("licenseNum")){
+		$("#vehicleNum").val(GetQueryString("licenseNum"));
+		var licenseNum = $("#vehicleNum").val();
+		var $cid = $('[name="contract.id"]');
+		$.post("/DZOMS/common/doit",{"condition":"from Contract c where c.state in (0,-1) and c.carframeNum in (select v.carframeNum from Vehicle v where v.state=1 and v.licenseNum='"+licenseNum+"') "},function(data){
+			var contract=data["affect"];
+			$cid.val(contract["id"]);
+			$('input[name="url"]').val("/vehicle/AbandonApproval/vehicle_abandon01.jsp");
+			$('[name="vehicleApprovalWrite"]').attr("action","/DZOMS/vehicle/vehicleApprovalPreAbandond").submit();
+		});
+	}
+
 	$("#vehicleNum").bigAutocomplete({
 		url:"/DZOMS/select/VehicleBylicenseNum",
 		condition:" state=1 and carframeNum in (select carframeNum from Contract where state in (0,-1)) ",
@@ -53,7 +70,8 @@ $(document).ready(function(){
     		});
 		}
 	});
-	
+
+
 	if ($("#vehicleNum").val().length<2) {
 		$("#vehicleNum").val("黑A");
 	}

@@ -25,4 +25,12 @@ public class HibernateUtil<T> {
             }
         });
     }
+    public List queryBySql(final String sql, final Class c){
+        return (List) hibernateTemplate.execute(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                SQLQuery query = session.createSQLQuery(sql).addEntity(c);
+                return query.list();
+            }
+        });
+    }
 }
