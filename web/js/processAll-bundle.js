@@ -12,7 +12,7 @@ __webpack_require__(127);
 
 /***/ }),
 
-/***/ 158:
+/***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(24)();
@@ -27,408 +27,7 @@ exports.push([module.i, ".ant-collapse {\n  background-color: #f7f7f7;\n  border
 
 /***/ }),
 
-/***/ 444:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module, $) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _css = __webpack_require__(27);
-
-var _table = __webpack_require__(26);
-
-var _table2 = _interopRequireDefault(_table);
-
-var _css2 = __webpack_require__(21);
-
-var _button = __webpack_require__(20);
-
-var _button2 = _interopRequireDefault(_button);
-
-var _index = __webpack_require__(18);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _index3 = __webpack_require__(16);
-
-var _index4 = _interopRequireDefault(_index3);
-
-var _react2 = __webpack_require__(0);
-
-var _react3 = _interopRequireDefault(_react2);
-
-var _index5 = __webpack_require__(17);
-
-var _index6 = _interopRequireDefault(_index5);
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _reactDom = __webpack_require__(3);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _components = {
-  ProcessesList: {
-    displayName: 'ProcessesList'
-  }
-};
-
-var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: 'D:/react/newProject/components/process/processesList.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
-});
-
-var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: 'D:/react/newProject/components/process/processesList.js',
-  components: _components,
-  locals: [],
-  imports: [_react3.default, _index2.default]
-});
-
-function _wrapComponent(id) {
-  return function (Component) {
-    return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
-  };
-}
-
-var ProcessesList = _wrapComponent('ProcessesList')(function (_React$Component) {
-  _inherits(ProcessesList, _React$Component);
-
-  function ProcessesList(props) {
-    _classCallCheck(this, ProcessesList);
-
-    var _this = _possibleConstructorReturn(this, (ProcessesList.__proto__ || Object.getPrototypeOf(ProcessesList)).call(this, props));
-
-    _this.state = {
-      recResult: []
-    };
-    return _this;
-  }
-
-  _createClass(ProcessesList, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var self = this;
-      $.ajax({
-        type: "GET",
-        //url: "/ky/repository/process-definitions",//?latest=true
-        url: this.props.processesListUrl,
-        dataType: 'json',
-        contentType: 'application/json',
-        success: function success(result) {
-          console.log(result.data);
-          self.setState({
-            recResult: result.data
-          });
-        },
-        error: function error(result) {
-          alert("操作失败");
-        }
-      });
-    }
-  }, {
-    key: 'startForm',
-    value: function startForm(index) {
-      window.location.href = this.props.executeStartForm + this.state.recResult[index].key;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var columns = [{
-        title: '序号',
-        render: function render(text, record, index) {
-          return _react3.default.createElement(
-            'span',
-            null,
-            ++index
-          );
-        }
-      }, {
-        title: '流程名称',
-        dataIndex: 'name'
-      }, {
-        title: '流程图预览',
-        dataIndex: 'diagramResource'
-      }, {
-        title: '启动',
-        key: 'action',
-        // render:(text,record,index)=>(<a href='/activity/process/start/"+data[index].key+"'>启动</a>),
-        render: function render(text, record, index) {
-          return _react3.default.createElement(
-            _button2.default,
-            { onClick: _this2.startForm.bind(_this2, index) },
-            '\u542F\u52A8'
-          );
-        }
-      }];
-      var i = 0;
-      return _react3.default.createElement(
-        'div',
-        null,
-        _react3.default.createElement(_table2.default, { pagination: false, columns: columns, dataSource: this.state.recResult })
-      );
-    }
-  }]);
-
-  return ProcessesList;
-}(_react3.default.Component));
-
-if (document.getElementById("processesList")) _reactDom2.default.render(_react3.default.createElement(ProcessesList, pageUrls), document.getElementById("processesList"));
-exports.default = ProcessesList;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module), __webpack_require__(15)))
-
-/***/ }),
-
-/***/ 445:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module, $) {
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _css = __webpack_require__(21);
-
-var _button = __webpack_require__(20);
-
-var _button2 = _interopRequireDefault(_button);
-
-var _css2 = __webpack_require__(28);
-
-var _input = __webpack_require__(38);
-
-var _input2 = _interopRequireDefault(_input);
-
-var _css3 = __webpack_require__(31);
-
-var _form = __webpack_require__(30);
-
-var _form2 = _interopRequireDefault(_form);
-
-var _index = __webpack_require__(18);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _index3 = __webpack_require__(16);
-
-var _index4 = _interopRequireDefault(_index3);
-
-var _react2 = __webpack_require__(0);
-
-var _react3 = _interopRequireDefault(_react2);
-
-var _index5 = __webpack_require__(17);
-
-var _index6 = _interopRequireDefault(_index5);
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _reactDom = __webpack_require__(3);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _components = {
-    StartForm: {
-        displayName: 'StartForm'
-    }
-};
-
-var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-    filename: 'D:/react/newProject/components/process/startForm.js',
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-});
-
-var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-    filename: 'D:/react/newProject/components/process/startForm.js',
-    components: _components,
-    locals: [],
-    imports: [_react3.default, _index2.default]
-});
-
-function _wrapComponent(id) {
-    return function (Component) {
-        return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
-    };
-}
-
-var FormItem = _form2.default.Item;
-
-var StartForm = _wrapComponent('StartForm')(function (_React$Component) {
-    _inherits(StartForm, _React$Component);
-
-    function StartForm(props) {
-        _classCallCheck(this, StartForm);
-
-        var _this = _possibleConstructorReturn(this, (StartForm.__proto__ || Object.getPrototypeOf(StartForm)).call(this, props));
-
-        _this.state = {
-            recResult: [],
-            processName: ""
-        };
-        _this.key = "";
-        return _this;
-    }
-
-    _createClass(StartForm, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.key = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
-            var key = this.key;
-            var self = this;
-            self.setState({
-                processName: key
-            });
-            $.ajax({
-                type: "GET",
-                url: this.props.startFormUrl + key,
-                //url:"/startFormRecdata",
-                dataType: 'json',
-                contentType: 'application/json',
-                success: function success(result) {
-                    self.setState({
-                        recResult: result.data
-                    });
-                },
-                error: function error(result) {
-                    alert("操作失败");
-                }
-            });
-        }
-    }, {
-        key: 'handleSubmit',
-        value: function handleSubmit(e) {
-            var _this2 = this;
-
-            var key = this.key;
-            e.preventDefault();
-            var result;
-            this.props.form.validateFields(function (err, values) {
-                if (!err) {
-                    result = values;
-                    $.ajax({
-                        type: "POST",
-                        url: _this2.props.startFormSubmitUrl + key,
-                        data: JSON.stringify(result),
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        success: function success(data) {
-                            if (data.status > 0) {
-                                window.location.href = "/activity/task/list";
-                            }
-                        },
-                        error: function error(data) {
-                            alert("失败");
-                        }
-                    });
-                    console.log(result);
-                } else {
-                    return;
-                }
-            });
-        }
-    }, {
-        key: 'genFormItem',
-        value: function genFormItem() {
-            var getFieldDecorator = this.props.form.getFieldDecorator;
-
-            var data = this.state.recResult;
-            var self = this;
-            var formItems = data.map(function (i) {
-                //console.log(i.type.mimeType);
-                return _react3.default.createElement(
-                    FormItem,
-                    {
-                        label: i.name,
-                        labelCol: { span: 4 },
-                        wrapperCol: { span: 12 }
-                    },
-                    getFieldDecorator(i.name, {
-                        rules: [{ required: true, message: '该字段不能为空!' }]
-                    })(_react3.default.createElement(_input2.default, null))
-                );
-            });
-            return formItems;
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            //console.log(this.state.recResult); 
-            // console.log(this.state.processName);
-            var getFieldDecorator = this.props.form.getFieldDecorator;
-
-            return _react3.default.createElement(
-                _form2.default,
-                { onSubmit: this.handleSubmit.bind(this) },
-                _react3.default.createElement(
-                    FormItem,
-                    {
-                        label: '\u6D41\u7A0B\u540D\u79F0',
-                        labelCol: { span: 4 },
-                        wrapperCol: { span: 12 }
-                    },
-                    _react3.default.createElement(
-                        'span',
-                        null,
-                        this.state.processName
-                    )
-                ),
-                this.genFormItem(),
-                _react3.default.createElement(
-                    FormItem,
-                    {
-                        wrapperCol: { span: 8, offset: 4 }
-                    },
-                    _react3.default.createElement(
-                        _button2.default,
-                        { type: 'primary', htmlType: 'submit', className: 'login-form-button' },
-                        '\u63D0\u4EA4'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return StartForm;
-}(_react3.default.Component));
-
-var WrappedStartForm = _form2.default.create()(StartForm);
-if (document.getElementById("startForm")) {
-    _reactDom2.default.render(_react3.default.createElement(WrappedStartForm, pageUrls), document.getElementById("startForm"));
-}
-exports.default = StartForm;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module), __webpack_require__(15)))
-
-/***/ }),
-
-/***/ 446:
+/***/ 205:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -456,39 +55,39 @@ var _col = __webpack_require__(130);
 
 var _col2 = _interopRequireDefault(_col);
 
-var _css4 = __webpack_require__(37);
+var _css4 = __webpack_require__(38);
 
-var _modal = __webpack_require__(36);
+var _modal = __webpack_require__(37);
 
 var _modal2 = _interopRequireDefault(_modal);
 
-var _css5 = __webpack_require__(31);
+var _css5 = __webpack_require__(30);
 
-var _form = __webpack_require__(30);
+var _form = __webpack_require__(29);
 
 var _form2 = _interopRequireDefault(_form);
 
-var _css6 = __webpack_require__(54);
+var _css6 = __webpack_require__(52);
 
-var _select = __webpack_require__(51);
+var _select = __webpack_require__(47);
 
 var _select2 = _interopRequireDefault(_select);
 
-var _css7 = __webpack_require__(28);
+var _css7 = __webpack_require__(26);
 
-var _input = __webpack_require__(38);
+var _input = __webpack_require__(36);
 
 var _input2 = _interopRequireDefault(_input);
 
-var _css8 = __webpack_require__(463);
+var _css8 = __webpack_require__(211);
 
-var _collapse = __webpack_require__(462);
+var _collapse = __webpack_require__(210);
 
 var _collapse2 = _interopRequireDefault(_collapse);
 
-var _css9 = __webpack_require__(132);
+var _css9 = __webpack_require__(101);
 
-var _radio = __webpack_require__(98);
+var _radio = __webpack_require__(84);
 
 var _radio2 = _interopRequireDefault(_radio);
 
@@ -518,7 +117,7 @@ var _reactDom = __webpack_require__(3);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _SelectInfo = __webpack_require__(99);
+var _SelectInfo = __webpack_require__(85);
 
 var _SelectInfo2 = _interopRequireDefault(_SelectInfo);
 
@@ -539,15 +138,15 @@ var _components = {
     }
 };
 
-var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-    filename: 'D:/react/newProject/components/process/taskDetails.js',
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskDetails.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
-var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-    filename: 'D:/react/newProject/components/process/taskDetails.js',
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskDetails.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _index2.default]
@@ -555,7 +154,7 @@ var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _ind
 
 function _wrapComponent(id) {
     return function (Component) {
-        return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+        return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
     };
 }
 
@@ -1141,7 +740,7 @@ var TaskCollapse = _wrapComponent('TaskCollapse')(function (_Component) {
                             _react3.default.createElement(
                                 'span',
                                 null,
-                                rows.endTime
+                                rows.endTime || "尚未结束"
                             )
                         )
                     )
@@ -1429,11 +1028,24 @@ var TaskDetails = _wrapComponent('TaskDetails')(function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this5 = this;
+
             var data = this.state.recResult;
             return _react3.default.createElement(
                 'div',
                 null,
-                _react3.default.createElement(WrappedTaskCollapse, _extends({}, pageUrls, { processImgData: this.state.processImgData, data: this.state.recResult, processVarInfo: this.state.processVarInfo, processHisInfo: this.state.processHisInfo }))
+                _react3.default.createElement(WrappedTaskCollapse, _extends({}, pageUrls, { processImgData: this.state.processImgData, data: this.state.recResult, processVarInfo: this.state.processVarInfo, processHisInfo: this.state.processHisInfo })),
+                _react3.default.createElement(
+                    'div',
+                    { style: { margin: 0, marginTop: 20, textAlign: 'center' } },
+                    _react3.default.createElement(
+                        _button2.default,
+                        { type: 'primary', style: { marginLeft: 5, width: 100 }, onClick: function onClick() {
+                                return window.location = _this5.props.jumpUrl;
+                            }, className: 'login-form-button' },
+                        '\u8FD4\u56DE'
+                    )
+                )
             );
         }
     }]);
@@ -1449,7 +1061,277 @@ exports.default = TaskDetails;
 
 /***/ }),
 
-/***/ 447:
+/***/ 210:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = exports.CollapsePanel = undefined;
+
+var _extends2 = __webpack_require__(5);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _defineProperty2 = __webpack_require__(10);
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _classCallCheck2 = __webpack_require__(6);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = __webpack_require__(8);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(7);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _rcCollapse = __webpack_require__(745);
+
+var _rcCollapse2 = _interopRequireDefault(_rcCollapse);
+
+var _classnames = __webpack_require__(4);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _openAnimation = __webpack_require__(207);
+
+var _openAnimation2 = _interopRequireDefault(_openAnimation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var CollapsePanel = exports.CollapsePanel = function (_React$Component) {
+    (0, _inherits3["default"])(CollapsePanel, _React$Component);
+
+    function CollapsePanel() {
+        (0, _classCallCheck3["default"])(this, CollapsePanel);
+        return (0, _possibleConstructorReturn3["default"])(this, _React$Component.apply(this, arguments));
+    }
+
+    return CollapsePanel;
+}(_react2["default"].Component);
+
+var Collapse = function (_React$Component2) {
+    (0, _inherits3["default"])(Collapse, _React$Component2);
+
+    function Collapse() {
+        (0, _classCallCheck3["default"])(this, Collapse);
+        return (0, _possibleConstructorReturn3["default"])(this, _React$Component2.apply(this, arguments));
+    }
+
+    Collapse.prototype.render = function render() {
+        var _props = this.props,
+            prefixCls = _props.prefixCls,
+            _props$className = _props.className,
+            className = _props$className === undefined ? '' : _props$className,
+            bordered = _props.bordered;
+
+        var collapseClassName = (0, _classnames2["default"])((0, _defineProperty3["default"])({}, prefixCls + '-borderless', !bordered), className);
+        return _react2["default"].createElement(_rcCollapse2["default"], (0, _extends3["default"])({}, this.props, { className: collapseClassName }));
+    };
+
+    return Collapse;
+}(_react2["default"].Component);
+
+exports["default"] = Collapse;
+
+Collapse.Panel = _rcCollapse2["default"].Panel;
+Collapse.defaultProps = {
+    prefixCls: 'ant-collapse',
+    bordered: true,
+    openAnimation: (0, _extends3["default"])({}, _openAnimation2["default"], {
+        appear: function appear() {}
+    })
+};
+
+/***/ }),
+
+/***/ 211:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(19);
+
+__webpack_require__(907);
+
+/***/ }),
+
+/***/ 445:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _css = __webpack_require__(30);
+
+var _form = __webpack_require__(29);
+
+var _form2 = _interopRequireDefault(_form);
+
+var _css2 = __webpack_require__(52);
+
+var _select = __webpack_require__(47);
+
+var _select2 = _interopRequireDefault(_select);
+
+var _css3 = __webpack_require__(26);
+
+var _input = __webpack_require__(36);
+
+var _input2 = _interopRequireDefault(_input);
+
+var _css4 = __webpack_require__(211);
+
+var _collapse = __webpack_require__(210);
+
+var _collapse2 = _interopRequireDefault(_collapse);
+
+var _css5 = __webpack_require__(101);
+
+var _radio = __webpack_require__(84);
+
+var _radio2 = _interopRequireDefault(_radio);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(3);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _SelectInfo = __webpack_require__(85);
+
+var _SelectInfo2 = _interopRequireDefault(_SelectInfo);
+
+var _taskDetails = __webpack_require__(205);
+
+var _taskDetails2 = _interopRequireDefault(_taskDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RadioGroup = _radio2.default.Group;
+var RadioButton = _radio2.default.Button;
+var Panel = _collapse2.default.Panel;
+var InputGroup = _input2.default.Group;
+var Option = _select2.default.Option;
+var FormItem = _form2.default.Item;
+
+var HistoryTaskDetails = function (_TaskDetails) {
+    _inherits(HistoryTaskDetails, _TaskDetails);
+
+    function HistoryTaskDetails() {
+        _classCallCheck(this, HistoryTaskDetails);
+
+        return _possibleConstructorReturn(this, (HistoryTaskDetails.__proto__ || Object.getPrototypeOf(HistoryTaskDetails)).apply(this, arguments));
+    }
+
+    _createClass(HistoryTaskDetails, [{
+        key: 'componentDidMount',
+        value: async function componentDidMount() {
+            var self = this;
+            window.processInstanceId = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
+            var recResult = [];
+            //console.log(key);
+            $.ajax({
+                type: "GET",
+                url: "/DZOMS/ky/history/historic-process-instances/" + window.processInstanceId,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function success(result) {
+                    var processHisInfo = [];
+                    processHisInfo.push(result);
+                    //console.log(processHisInfo);
+                    self.setState({
+                        processHisInfo: processHisInfo
+                    });
+                },
+                error: function error(result) {
+                    alert("操作失败");
+                }
+            });
+            $.ajax({
+                type: "GET",
+                url: "/DZOMS/ky/history/historic-variable-instances?processInstanceId=" + window.processInstanceId,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function success(result) {
+                    if (result.data) {
+                        var expNull = null;
+                        var taskDataList = {};
+                        var startFormData = [];
+                        for (var i = 0; i < result.data.length; i++) {
+                            if (result.data[i].taskId === expNull) {
+                                startFormData.push(result.data[i]);
+                            }
+                        }
+                        self.setState({
+                            // recResult:taskArray,
+                            processVarInfo: startFormData
+                        });
+                    }
+                },
+                error: function error(result) {
+                    alert("操作失败");
+                }
+            });
+            $.ajax({
+                type: "GET",
+                url: "/DZOMS/ky/history/historic-task-instances?processInstanceId=" + window.processInstanceId,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function success(result) {
+                    if (result.data) {
+                        //console.log(result);  
+                        self.setState({
+                            recResult: result.data,
+                            processImgData: result.data
+                        });
+                    }
+                },
+                error: function error(result) {
+                    alert("操作失败");
+                }
+            });
+        }
+    }]);
+
+    return HistoryTaskDetails;
+}(_taskDetails2.default);
+
+if (document.getElementById("historyTaskDetails")) {
+    _reactDom2.default.render(_react2.default.createElement(HistoryTaskDetails, pageUrls), document.getElementById("historyTaskDetails"));
+}
+exports.default = HistoryTaskDetails;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
+
+/***/ }),
+
+/***/ 446:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1459,9 +1341,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _css = __webpack_require__(27);
+var _css = __webpack_require__(28);
 
-var _table = __webpack_require__(26);
+var _table = __webpack_require__(27);
 
 var _table2 = _interopRequireDefault(_table);
 
@@ -1471,9 +1353,410 @@ var _button = __webpack_require__(20);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _css3 = __webpack_require__(31);
+var _index = __webpack_require__(18);
 
-var _form = __webpack_require__(30);
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(16);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _react2 = __webpack_require__(0);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index5 = __webpack_require__(17);
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactDom = __webpack_require__(3);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  ProcessesList: {
+    displayName: 'ProcessesList'
+  }
+};
+
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/processesList.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/processesList.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _index2.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+  };
+}
+
+var ProcessesList = _wrapComponent('ProcessesList')(function (_React$Component) {
+  _inherits(ProcessesList, _React$Component);
+
+  function ProcessesList(props) {
+    _classCallCheck(this, ProcessesList);
+
+    var _this = _possibleConstructorReturn(this, (ProcessesList.__proto__ || Object.getPrototypeOf(ProcessesList)).call(this, props));
+
+    _this.state = {
+      recResult: []
+    };
+    return _this;
+  }
+
+  _createClass(ProcessesList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var self = this;
+      $.ajax({
+        type: "GET",
+        //url: "/ky/repository/process-definitions",//?latest=true
+        url: this.props.processesListUrl,
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function success(result) {
+          console.log(result.data);
+          self.setState({
+            recResult: result.data
+          });
+        },
+        error: function error(result) {
+          alert("操作失败");
+        }
+      });
+    }
+  }, {
+    key: 'startForm',
+    value: function startForm(index) {
+      window.location.href = this.props.executeStartForm + this.state.recResult[index].key;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var columns = [{
+        title: '序号',
+        render: function render(text, record, index) {
+          return _react3.default.createElement(
+            'span',
+            null,
+            ++index
+          );
+        }
+      }, {
+        title: '流程名称',
+        dataIndex: 'name'
+      }, {
+        title: '流程图预览',
+        dataIndex: 'diagramResource'
+      }, {
+        title: '启动',
+        key: 'action',
+        // render:(text,record,index)=>(<a href='/activity/process/start/"+data[index].key+"'>启动</a>),
+        render: function render(text, record, index) {
+          return _react3.default.createElement(
+            _button2.default,
+            { onClick: _this2.startForm.bind(_this2, index) },
+            '\u542F\u52A8'
+          );
+        }
+      }];
+      var i = 0;
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement(_table2.default, { pagination: false, columns: columns, dataSource: this.state.recResult })
+      );
+    }
+  }]);
+
+  return ProcessesList;
+}(_react3.default.Component));
+
+if (document.getElementById("processesList")) _reactDom2.default.render(_react3.default.createElement(ProcessesList, pageUrls), document.getElementById("processesList"));
+exports.default = ProcessesList;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module), __webpack_require__(15)))
+
+/***/ }),
+
+/***/ 447:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module, $) {
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _css = __webpack_require__(21);
+
+var _button = __webpack_require__(20);
+
+var _button2 = _interopRequireDefault(_button);
+
+var _css2 = __webpack_require__(26);
+
+var _input = __webpack_require__(36);
+
+var _input2 = _interopRequireDefault(_input);
+
+var _css3 = __webpack_require__(30);
+
+var _form = __webpack_require__(29);
+
+var _form2 = _interopRequireDefault(_form);
+
+var _index = __webpack_require__(18);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(16);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _react2 = __webpack_require__(0);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index5 = __webpack_require__(17);
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactDom = __webpack_require__(3);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    StartForm: {
+        displayName: 'StartForm'
+    }
+};
+
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/startForm.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/startForm.js',
+    components: _components,
+    locals: [],
+    imports: [_react3.default, _index2.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+    };
+}
+
+var FormItem = _form2.default.Item;
+
+var StartForm = _wrapComponent('StartForm')(function (_React$Component) {
+    _inherits(StartForm, _React$Component);
+
+    function StartForm(props) {
+        _classCallCheck(this, StartForm);
+
+        var _this = _possibleConstructorReturn(this, (StartForm.__proto__ || Object.getPrototypeOf(StartForm)).call(this, props));
+
+        _this.state = {
+            recResult: [],
+            processName: ""
+        };
+        _this.key = "";
+        return _this;
+    }
+
+    _createClass(StartForm, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.key = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
+            var key = this.key;
+            var self = this;
+            self.setState({
+                processName: key
+            });
+            $.ajax({
+                type: "GET",
+                url: this.props.startFormUrl + key,
+                //url:"/startFormRecdata",
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function success(result) {
+                    self.setState({
+                        recResult: result.data
+                    });
+                },
+                error: function error(result) {
+                    alert("操作失败");
+                }
+            });
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(e) {
+            var _this2 = this;
+
+            var key = this.key;
+            e.preventDefault();
+            var result;
+            this.props.form.validateFields(function (err, values) {
+                if (!err) {
+                    result = values;
+                    $.ajax({
+                        type: "POST",
+                        url: _this2.props.startFormSubmitUrl + key,
+                        data: JSON.stringify(result),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function success(data) {
+                            if (data.status > 0) {
+                                window.location.href = "/activity/task/list";
+                            }
+                        },
+                        error: function error(data) {
+                            alert("失败");
+                        }
+                    });
+                    console.log(result);
+                } else {
+                    return;
+                }
+            });
+        }
+    }, {
+        key: 'genFormItem',
+        value: function genFormItem() {
+            var getFieldDecorator = this.props.form.getFieldDecorator;
+
+            var data = this.state.recResult;
+            var self = this;
+            var formItems = data.map(function (i) {
+                //console.log(i.type.mimeType);
+                return _react3.default.createElement(
+                    FormItem,
+                    {
+                        label: i.name,
+                        labelCol: { span: 4 },
+                        wrapperCol: { span: 12 }
+                    },
+                    getFieldDecorator(i.name, {
+                        rules: [{ required: true, message: '该字段不能为空!' }]
+                    })(_react3.default.createElement(_input2.default, null))
+                );
+            });
+            return formItems;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            //console.log(this.state.recResult); 
+            // console.log(this.state.processName);
+            var getFieldDecorator = this.props.form.getFieldDecorator;
+
+            return _react3.default.createElement(
+                _form2.default,
+                { onSubmit: this.handleSubmit.bind(this) },
+                _react3.default.createElement(
+                    FormItem,
+                    {
+                        label: '\u6D41\u7A0B\u540D\u79F0',
+                        labelCol: { span: 4 },
+                        wrapperCol: { span: 12 }
+                    },
+                    _react3.default.createElement(
+                        'span',
+                        null,
+                        this.state.processName
+                    )
+                ),
+                this.genFormItem(),
+                _react3.default.createElement(
+                    FormItem,
+                    {
+                        wrapperCol: { span: 8, offset: 4 }
+                    },
+                    _react3.default.createElement(
+                        _button2.default,
+                        { type: 'primary', htmlType: 'submit', className: 'login-form-button' },
+                        '\u63D0\u4EA4'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return StartForm;
+}(_react3.default.Component));
+
+var WrappedStartForm = _form2.default.create()(StartForm);
+if (document.getElementById("startForm")) {
+    _reactDom2.default.render(_react3.default.createElement(WrappedStartForm, pageUrls), document.getElementById("startForm"));
+}
+exports.default = StartForm;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module), __webpack_require__(15)))
+
+/***/ }),
+
+/***/ 448:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module, $) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _css = __webpack_require__(28);
+
+var _table = __webpack_require__(27);
+
+var _table2 = _interopRequireDefault(_table);
+
+var _css2 = __webpack_require__(21);
+
+var _button = __webpack_require__(20);
+
+var _button2 = _interopRequireDefault(_button);
+
+var _css3 = __webpack_require__(30);
+
+var _form = __webpack_require__(29);
 
 var _form2 = _interopRequireDefault(_form);
 
@@ -1513,15 +1796,15 @@ var _components = {
   }
 };
 
-var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: 'D:/react/newProject/components/process/taskList.js',
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskList.js',
   components: _components,
   locals: [module],
   imports: [_react3.default]
 });
 
-var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: 'D:/react/newProject/components/process/taskList.js',
+var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskList.js',
   components: _components,
   locals: [],
   imports: [_react3.default, _index2.default]
@@ -1529,7 +1812,7 @@ var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _ind
 
 function _wrapComponent(id) {
   return function (Component) {
-    return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+    return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
   };
 }
 
@@ -1636,127 +1919,21 @@ exports.default = TaskList;
 
 /***/ }),
 
-/***/ 462:
+/***/ 532:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = exports.CollapsePanel = undefined;
-
-var _extends2 = __webpack_require__(5);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _defineProperty2 = __webpack_require__(10);
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
-var _classCallCheck2 = __webpack_require__(6);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _possibleConstructorReturn2 = __webpack_require__(8);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(7);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _rcCollapse = __webpack_require__(749);
-
-var _rcCollapse2 = _interopRequireDefault(_rcCollapse);
-
-var _classnames = __webpack_require__(4);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _openAnimation = __webpack_require__(203);
-
-var _openAnimation2 = _interopRequireDefault(_openAnimation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var CollapsePanel = exports.CollapsePanel = function (_React$Component) {
-    (0, _inherits3["default"])(CollapsePanel, _React$Component);
-
-    function CollapsePanel() {
-        (0, _classCallCheck3["default"])(this, CollapsePanel);
-        return (0, _possibleConstructorReturn3["default"])(this, _React$Component.apply(this, arguments));
-    }
-
-    return CollapsePanel;
-}(_react2["default"].Component);
-
-var Collapse = function (_React$Component2) {
-    (0, _inherits3["default"])(Collapse, _React$Component2);
-
-    function Collapse() {
-        (0, _classCallCheck3["default"])(this, Collapse);
-        return (0, _possibleConstructorReturn3["default"])(this, _React$Component2.apply(this, arguments));
-    }
-
-    Collapse.prototype.render = function render() {
-        var _props = this.props,
-            prefixCls = _props.prefixCls,
-            _props$className = _props.className,
-            className = _props$className === undefined ? '' : _props$className,
-            bordered = _props.bordered;
-
-        var collapseClassName = (0, _classnames2["default"])((0, _defineProperty3["default"])({}, prefixCls + '-borderless', !bordered), className);
-        return _react2["default"].createElement(_rcCollapse2["default"], (0, _extends3["default"])({}, this.props, { className: collapseClassName }));
-    };
-
-    return Collapse;
-}(_react2["default"].Component);
-
-exports["default"] = Collapse;
-
-Collapse.Panel = _rcCollapse2["default"].Panel;
-Collapse.defaultProps = {
-    prefixCls: 'ant-collapse',
-    bordered: true,
-    openAnimation: (0, _extends3["default"])({}, _openAnimation2["default"], {
-        appear: function appear() {}
-    })
-};
-
-/***/ }),
-
-/***/ 463:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(19);
-
-__webpack_require__(912);
-
-/***/ }),
-
-/***/ 533:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(444);
-__webpack_require__(445);
-__webpack_require__(447);
 __webpack_require__(446);
+__webpack_require__(447);
+__webpack_require__(448);
+__webpack_require__(205);
+__webpack_require__(445);
 
 /***/ }),
 
-/***/ 746:
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1770,11 +1947,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Panel = __webpack_require__(747);
+var _Panel = __webpack_require__(743);
 
 var _Panel2 = _interopRequireDefault(_Panel);
 
-var _openAnimationFactory = __webpack_require__(750);
+var _openAnimationFactory = __webpack_require__(746);
 
 var _openAnimationFactory2 = _interopRequireDefault(_openAnimationFactory);
 
@@ -1935,7 +2112,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 747:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1953,7 +2130,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _PanelContent = __webpack_require__(748);
+var _PanelContent = __webpack_require__(744);
 
 var _PanelContent2 = _interopRequireDefault(_PanelContent);
 
@@ -2041,7 +2218,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 748:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2107,7 +2284,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 749:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2117,7 +2294,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Collapse = __webpack_require__(746);
+var _Collapse = __webpack_require__(742);
 
 var _Collapse2 = _interopRequireDefault(_Collapse);
 
@@ -2128,7 +2305,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 750:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2138,7 +2315,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _cssAnimation = __webpack_require__(154);
+var _cssAnimation = __webpack_require__(153);
 
 var _cssAnimation2 = _interopRequireDefault(_cssAnimation);
 
@@ -2181,13 +2358,13 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 912:
+/***/ 907:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(158);
+var content = __webpack_require__(157);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(25)(content, {});
@@ -2196,8 +2373,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(158, function() {
-			var newContent = __webpack_require__(158);
+		module.hot.accept(157, function() {
+			var newContent = __webpack_require__(157);
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -2208,4 +2385,4 @@ if(true) {
 
 /***/ })
 
-},[533]);
+},[532]);
