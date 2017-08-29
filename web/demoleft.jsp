@@ -146,7 +146,7 @@ $(document).ready(function(){
     <aside id="sidebar">
     	
     
-		
+		<i></i>
 		<!-- Begin of #login-details -->
 		<section id="login-details">
     		<img class="img-left framed" src="/DZOMS/res/mainPage/img/misc/avatar_small.png" alt="Hello Admin">
@@ -267,7 +267,7 @@ $(document).ready(function(){
 		-->
 		<!-- Begin of #main-content -->
 		<div id="main-content">
-			  <iframe  id="body-right" src="/DZOMS/<%=menu%>/" width="100%" scrolling="no" height="1200px" name="body-right"  style="border: 0px;"></iframe>
+			  <iframe  id="body-right" src="/DZOMS/<%=menu%>/" width="100%" scrolling="no" height="12000px" name="body-right"  style="border: 0px;"></iframe>
 		</div> <!--! end of #main-content -->
   </div> <!--! end of #main -->
   </div> <!--! end of #container -->

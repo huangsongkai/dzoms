@@ -15,11 +15,9 @@ table thead tr th:nth-child(2){
 	width:80px;
 }
 table tbody tr td:nth-child(3){
-	display: inline-block;
 	width:80px;
 }
 table tbody tr td:nth-child(6){
-	display: inline-block;
 	width:185px;
 }
 .container table>thead.ant-table-thead>tr>td,.container table>thead.ant-table-thead>tr>th,table tr td{
@@ -28,14 +26,11 @@ table tbody tr td:nth-child(6){
 
 #proManagement tr td,#proManagement tr th{
 	text-align: center;
-	border:0;
+	border:1px solid #ddd;
 }
 
-tbody>tr>td>span{
-	display:inline-block;
-}
 tbody>tr>td>input.ant-input,tbody>tr>td>span.ant-calendar-picker{
-	width:50%;
+	width:100;
 }
 tbody>tr>td:nth-child(2)>span{
 	width:80px;
@@ -74,3 +69,9 @@ tbody>tr>td>span>span>input{
 
 }
 
+.ant-table table {
+	font-size: 12px;
+}
+div.ant-row{
+	display: inline-block;
+}

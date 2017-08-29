@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.dz.module.user.User" %><%--
   Created by IntelliJ IDEA.
   User: huang
   Date: 2017/6/15
@@ -18,10 +18,13 @@
     </div>
     <div id="taskList"></div>
 </div>
-
+<%
+    User user = (User) session.getAttribute("user");
+    String userName = user.getUname();
+%>
 <script type="text/javascript">
     var pageUrls ={
-        taskListUrl:"/DZOMS/ky/runtime/tasks",   //get    ?assignee=
+        taskListUrl:"/DZOMS/ky/runtime/tasks?assignee=<%=userName%>",   //get?assignee=
         executeUrl:"/DZOMS/ky/activity/task/execute/" //执行跳转时的url
     }
 </script>

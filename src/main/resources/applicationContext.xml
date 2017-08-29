@@ -27,6 +27,7 @@
 
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+		<!--//com.mchange.v2.c3p0.ComboPooledDataSource-->
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/ky_dzomsdb"></property>
 		<property name="username" value="root"></property>

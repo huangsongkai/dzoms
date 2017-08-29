@@ -13,10 +13,7 @@
 </head>
 <body>
 <div class="container">
-        <div id="header">
-            <h2>个人绩效考评</h2>
-        </div>
-        <div id="personalPerformance"></div>
+        <div id="personalPerformance" style="height: 20000px;"></div>
     </div>
 </body>
 <script type="text/javascript">

@@ -165,7 +165,7 @@ public class JobDutyController {
         public Result history(HttpServletRequest request){
             HttpSession session = request.getSession();
             User user = (User) session.getAttribute("user");
-            return jobDutiesService.listHistory(user.getUid());
+            return jobDutiesService.listHistory(user.getUid() ,request);
         }
 
         /**

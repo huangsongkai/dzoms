@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 131:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8,11 +8,11 @@ webpackJsonp([1],{
 
 __webpack_require__(19);
 
-__webpack_require__(127);
+__webpack_require__(128);
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(24)();
@@ -27,7 +27,7 @@ exports.push([module.i, ".ant-collapse {\n  background-color: #f7f7f7;\n  border
 
 /***/ }),
 
-/***/ 205:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49,9 +49,9 @@ var _inputNumber = __webpack_require__(45);
 
 var _inputNumber2 = _interopRequireDefault(_inputNumber);
 
-var _css3 = __webpack_require__(131);
+var _css3 = __webpack_require__(132);
 
-var _col = __webpack_require__(130);
+var _col = __webpack_require__(131);
 
 var _col2 = _interopRequireDefault(_col);
 
@@ -79,13 +79,13 @@ var _input = __webpack_require__(36);
 
 var _input2 = _interopRequireDefault(_input);
 
-var _css8 = __webpack_require__(211);
+var _css8 = __webpack_require__(208);
 
-var _collapse = __webpack_require__(210);
+var _collapse = __webpack_require__(207);
 
 var _collapse2 = _interopRequireDefault(_collapse);
 
-var _css9 = __webpack_require__(101);
+var _css9 = __webpack_require__(100);
 
 var _radio = __webpack_require__(84);
 
@@ -138,15 +138,15 @@ var _components = {
     }
 };
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskDetails.js',
+var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+    filename: 'D:/react/newProject/components/process/taskDetails.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskDetails.js',
+var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+    filename: 'D:/react/newProject/components/process/taskDetails.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _index2.default]
@@ -154,7 +154,7 @@ var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndex
 
 function _wrapComponent(id) {
     return function (Component) {
-        return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+        return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
     };
 }
 
@@ -817,6 +817,8 @@ var TaskCollapse = _wrapComponent('TaskCollapse')(function (_Component) {
                 processInstanceId = this.props.processImgData[0].processInstanceId;
             }
             //console.log(processInstanceId);
+            // src={"/DZOMS/ky/runtime/process-instances/"+processInstanceId+"/diagram"} 
+            // src={'/images/img1.png'}
             return _react3.default.createElement(
                 'div',
                 null,
@@ -834,7 +836,7 @@ var TaskCollapse = _wrapComponent('TaskCollapse')(function (_Component) {
                         this.genProcessHisInfoRows(),
                         this.genProcessVarInfoRows()
                     ),
-                    _react3.default.createElement('img', { onClick: this.showImgModal.bind(this), src: "/DZOMS/ky/runtime/process-instances/" + processInstanceId + "/diagram", className: 'processImg' }),
+                    _react3.default.createElement('img', { onClick: this.showImgModal.bind(this), title: '\u70B9\u51FB\u770B\u5927\u56FE', src: "/DZOMS/ky/runtime/process-instances/" + processInstanceId + "/diagram", className: 'processImg' }),
                     _react3.default.createElement(
                         _modal2.default,
                         {
@@ -844,7 +846,11 @@ var TaskCollapse = _wrapComponent('TaskCollapse')(function (_Component) {
                             onOk: this.onImgOk.bind(this),
                             onCancel: this.onImgOk.bind(this)
                         },
-                        _react3.default.createElement('img', { src: "/DZOMS/ky/runtime/process-instances/" + processInstanceId + "/diagram" })
+                        _react3.default.createElement(
+                            'div',
+                            { style: { width: '95%', 'overflowX': 'scroll' } },
+                            _react3.default.createElement('img', { src: "/DZOMS/ky/runtime/process-instances/" + processInstanceId + "/diagram" })
+                        )
                     )
                 ),
                 _react3.default.createElement(
@@ -1061,7 +1067,7 @@ exports.default = TaskDetails;
 
 /***/ }),
 
-/***/ 210:
+/***/ 207:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1096,7 +1102,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _rcCollapse = __webpack_require__(745);
+var _rcCollapse = __webpack_require__(750);
 
 var _rcCollapse2 = _interopRequireDefault(_rcCollapse);
 
@@ -1104,7 +1110,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _openAnimation = __webpack_require__(207);
+var _openAnimation = __webpack_require__(204);
 
 var _openAnimation2 = _interopRequireDefault(_openAnimation);
 
@@ -1156,7 +1162,7 @@ Collapse.defaultProps = {
 
 /***/ }),
 
-/***/ 211:
+/***/ 208:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1164,11 +1170,11 @@ Collapse.defaultProps = {
 
 __webpack_require__(19);
 
-__webpack_require__(907);
+__webpack_require__(913);
 
 /***/ }),
 
-/***/ 445:
+/***/ 447:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1196,13 +1202,13 @@ var _input = __webpack_require__(36);
 
 var _input2 = _interopRequireDefault(_input);
 
-var _css4 = __webpack_require__(211);
+var _css4 = __webpack_require__(208);
 
-var _collapse = __webpack_require__(210);
+var _collapse = __webpack_require__(207);
 
 var _collapse2 = _interopRequireDefault(_collapse);
 
-var _css5 = __webpack_require__(101);
+var _css5 = __webpack_require__(100);
 
 var _radio = __webpack_require__(84);
 
@@ -1222,7 +1228,7 @@ var _SelectInfo = __webpack_require__(85);
 
 var _SelectInfo2 = _interopRequireDefault(_SelectInfo);
 
-var _taskDetails = __webpack_require__(205);
+var _taskDetails = __webpack_require__(202);
 
 var _taskDetails2 = _interopRequireDefault(_taskDetails);
 
@@ -1331,7 +1337,7 @@ exports.default = HistoryTaskDetails;
 
 /***/ }),
 
-/***/ 446:
+/***/ 448:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1389,15 +1395,15 @@ var _components = {
   }
 };
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/processesList.js',
+var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+  filename: 'D:/react/newProject/components/process/processesList.js',
   components: _components,
   locals: [module],
   imports: [_react3.default]
 });
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/processesList.js',
+var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+  filename: 'D:/react/newProject/components/process/processesList.js',
   components: _components,
   locals: [],
   imports: [_react3.default, _index2.default]
@@ -1405,7 +1411,7 @@ var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndex
 
 function _wrapComponent(id) {
   return function (Component) {
-    return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+    return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
   };
 }
 
@@ -1499,7 +1505,7 @@ exports.default = ProcessesList;
 
 /***/ }),
 
-/***/ 447:
+/***/ 449:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1563,15 +1569,15 @@ var _components = {
     }
 };
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/startForm.js',
+var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+    filename: 'D:/react/newProject/components/process/startForm.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
 });
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-    filename: '/Users/song/work/react/Mine/dzomsui2/components/process/startForm.js',
+var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+    filename: 'D:/react/newProject/components/process/startForm.js',
     components: _components,
     locals: [],
     imports: [_react3.default, _index2.default]
@@ -1579,7 +1585,7 @@ var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndex
 
 function _wrapComponent(id) {
     return function (Component) {
-        return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+        return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
     };
 }
 
@@ -1732,7 +1738,7 @@ exports.default = StartForm;
 
 /***/ }),
 
-/***/ 448:
+/***/ 450:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1796,15 +1802,15 @@ var _components = {
   }
 };
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskList.js',
+var _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+  filename: 'D:/react/newProject/components/process/taskList.js',
   components: _components,
   locals: [module],
   imports: [_react3.default]
 });
 
-var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: '/Users/song/work/react/Mine/dzomsui2/components/process/taskList.js',
+var _DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+  filename: 'D:/react/newProject/components/process/taskList.js',
   components: _components,
   locals: [],
   imports: [_react3.default, _index2.default]
@@ -1812,7 +1818,7 @@ var _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndex
 
 function _wrapComponent(id) {
   return function (Component) {
-    return _UsersSongWorkReactMineDzomsui2Node_modulesReactTransformHmrLibIndexJs2(_UsersSongWorkReactMineDzomsui2Node_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+    return _DReactNewProjectNode_modulesReactTransformHmrLibIndexJs2(_DReactNewProjectNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
   };
 }
 
@@ -1919,21 +1925,21 @@ exports.default = TaskList;
 
 /***/ }),
 
-/***/ 532:
+/***/ 534:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(446);
-__webpack_require__(447);
 __webpack_require__(448);
-__webpack_require__(205);
-__webpack_require__(445);
+__webpack_require__(449);
+__webpack_require__(450);
+__webpack_require__(202);
+__webpack_require__(447);
 
 /***/ }),
 
-/***/ 742:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1947,11 +1953,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Panel = __webpack_require__(743);
+var _Panel = __webpack_require__(748);
 
 var _Panel2 = _interopRequireDefault(_Panel);
 
-var _openAnimationFactory = __webpack_require__(746);
+var _openAnimationFactory = __webpack_require__(751);
 
 var _openAnimationFactory2 = _interopRequireDefault(_openAnimationFactory);
 
@@ -2112,7 +2118,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 743:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2130,7 +2136,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _PanelContent = __webpack_require__(744);
+var _PanelContent = __webpack_require__(749);
 
 var _PanelContent2 = _interopRequireDefault(_PanelContent);
 
@@ -2218,7 +2224,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 744:
+/***/ 749:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2284,7 +2290,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 745:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2294,7 +2300,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Collapse = __webpack_require__(742);
+var _Collapse = __webpack_require__(747);
 
 var _Collapse2 = _interopRequireDefault(_Collapse);
 
@@ -2305,7 +2311,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 746:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2315,7 +2321,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _cssAnimation = __webpack_require__(153);
+var _cssAnimation = __webpack_require__(154);
 
 var _cssAnimation2 = _interopRequireDefault(_cssAnimation);
 
@@ -2358,13 +2364,13 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 907:
+/***/ 913:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(157);
+var content = __webpack_require__(158);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(25)(content, {});
@@ -2373,8 +2379,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(157, function() {
-			var newContent = __webpack_require__(157);
+		module.hot.accept(158, function() {
+			var newContent = __webpack_require__(158);
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -2385,4 +2391,4 @@ if(true) {
 
 /***/ })
 
-},[532]);
+},[534]);

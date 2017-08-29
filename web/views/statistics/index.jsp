@@ -13,6 +13,7 @@
     <style type="text/css">
         .container,#main{
             width: 100%;
+            background-color:#fff;
             margin: 0 auto;
         }
         #main{
@@ -883,7 +884,74 @@
         });
     }
 
+
+    function stat_finance_month_distribution(dom){
+        $.get("/DZOMS/ky/statistics/finance/wholeYear").done(function (data) {
+            var option = {
+                title : {
+                    text: '事故统计',
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data:['计划金额','实收金额']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : false,
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        axisLabel : {
+                            formatter: '{value} 个'
+                        }
+                    }
+                ],
+                series : [
+                ]
+            };
+            option.xAxis[0].data = data.data.keys
+            var names = ['事故数量','实收金额']
+            for(var i = 0; i < names.length; i++){
+                var s = {
+                    name:names[i],
+                    type:'line',
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                };;
+                s.data = data.data.counts[i];
+                option.series.push(s);
+            }
+            var myCharts = echarts.init(dom, "macarons");
+            myCharts.setOption(option);
+        });
+    }
+
 </script>
+
+
+
 
 </body>
 </html>

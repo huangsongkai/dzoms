@@ -1,5 +1,6 @@
 package com.dz.kaiying.service;
 
+import com.dz.module.user.User;
 import org.activiti.engine.*;
 import org.activiti.engine.history.HistoricTaskInstance;
 import org.activiti.engine.impl.RepositoryServiceImpl;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Service
@@ -81,7 +83,7 @@ public class ActivitiService {
         runtimeService.startProcessInstanceById("id");
     }
 
-    public String startForm(String userId, String key, Map map) {
+    public String startForm(String userId, String key, Map map, HttpServletRequest request) {
         identityService.setAuthenticatedUserId(userId);
         Map<String, String> variableMap = new HashMap<String, String>();
         for(Iterator iter = map.entrySet().iterator(); iter.hasNext();){
@@ -91,9 +93,16 @@ public class ActivitiService {
             System.out.println();
             variableMap.put(strKey, strObj[0]);
         }
+
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey(key).latestVersion().singleResult();
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String userName = user.getUname();
         //获取开始表单
+        variableMap.put("userName1", userName);
         ProcessInstance processInstance = formService.submitStartFormData(processDefinition.getId(), variableMap);
+
+        //runtimeService.setVariable(processDefinition.getId(), "userName", userName);//在runtime的时候插入一个全局变量
         return processInstance.getId();
     }
 

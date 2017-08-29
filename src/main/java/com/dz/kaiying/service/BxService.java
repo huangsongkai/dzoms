@@ -141,7 +141,7 @@ public class BxService {
         return cs;
     }
 
-    public Result importExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String importExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         commonsMultipartResolver.setDefaultEncoding("utf-8");
         MultipartHttpServletRequest multipartRequest = commonsMultipartResolver.resolveMultipart(request);
@@ -174,6 +174,6 @@ public class BxService {
             System.out.println("打印信息--> ");
         }
         result.setSuccess("导出成功", null);
-        return result;
+        return "bx/insurance_list";
     }
 }

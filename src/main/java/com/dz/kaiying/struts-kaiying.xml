@@ -253,6 +253,7 @@
                      <result name="success">/driver/leave/search_result.jsp</result>
               </action>
 
+
         </package>
         <package name="homevisit" namespace="/driver/homevisit" extends="struts-default">
         	<action name="*" class="homeVisitAction" method="{1}">

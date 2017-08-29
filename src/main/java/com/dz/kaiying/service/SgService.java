@@ -196,7 +196,7 @@ public class SgService {
         return cs;
     }
 
-    public Result importExcel(HttpServletRequest request) throws Exception {
+    public String importExcel(HttpServletRequest request) throws Exception {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         commonsMultipartResolver.setDefaultEncoding("utf-8");
         MultipartHttpServletRequest multipartRequest = commonsMultipartResolver.resolveMultipart(request);
@@ -241,6 +241,6 @@ public class SgService {
             System.out.println("打印信息--> ");
         }
         result.setSuccess("导出成功", null);
-        return result;
+        return "sg/accident_list";
     }
 }
